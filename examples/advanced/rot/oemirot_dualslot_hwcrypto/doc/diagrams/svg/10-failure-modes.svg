@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">What happens when an update goes wrong</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Four of the five failures are handled identically — the fifth is the whole argument</text>
+<rect x="684" y="192" width="424" height="48" rx="10" fill="#03234B"/>
+<text x="896.0" y="225" font-size="19" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">OVERWRITE</text>
+<rect x="1124" y="192" width="424" height="48" rx="10" fill="#1B7CA8"/>
+<text x="1336.0" y="225" font-size="19" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SWAP / BANK SWAP</text>
+<rect x="64" y="250" width="1484" height="92" rx="8" fill="#EFF3F7"/>
+<text x="82" y="302" font-size="19" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Forged or re-signed with the wrong key</text>
+<rect x="692" y="262" width="400" height="68" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2"/>
+<path d="M717.0,296 L724.0,303.0 L736.0,288.0" fill="none" stroke="#12A05C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="754" y="303" font-size="17" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">rejected before install</text>
+<rect x="1132" y="262" width="400" height="68" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2"/>
+<path d="M1157.0,296 L1164.0,303.0 L1176.0,288.0" fill="none" stroke="#12A05C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1194" y="303" font-size="17" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">rejected before install</text>
+<text x="82" y="406" font-size="19" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Corrupted during the transfer</text>
+<rect x="692" y="366" width="400" height="68" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2"/>
+<path d="M717.0,400 L724.0,407.0 L736.0,392.0" fill="none" stroke="#12A05C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="754" y="407" font-size="17" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">hash mismatch — rejected</text>
+<rect x="1132" y="366" width="400" height="68" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2"/>
+<path d="M1157.0,400 L1164.0,407.0 L1176.0,392.0" fill="none" stroke="#12A05C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1194" y="407" font-size="17" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">hash mismatch — rejected</text>
+<rect x="64" y="458" width="1484" height="92" rx="8" fill="#EFF3F7"/>
+<text x="82" y="510" font-size="19" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Genuine, but an old vulnerable version</text>
+<rect x="692" y="470" width="400" height="68" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2"/>
+<path d="M717.0,504 L724.0,511.0 L736.0,496.0" fill="none" stroke="#12A05C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="754" y="511" font-size="17" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">below the counter — rejected</text>
+<rect x="1132" y="470" width="400" height="68" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2"/>
+<path d="M1157.0,504 L1164.0,511.0 L1176.0,496.0" fill="none" stroke="#12A05C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1194" y="511" font-size="17" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">below the counter — rejected</text>
+<text x="82" y="614" font-size="19" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Power lost during the install</text>
+<rect x="692" y="574" width="400" height="68" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2"/>
+<path d="M717.0,608 L724.0,615.0 L736.0,600.0" fill="none" stroke="#12A05C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="754" y="615" font-size="17" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">the copy restarts</text>
+<rect x="1132" y="574" width="400" height="68" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2"/>
+<path d="M1157.0,608 L1164.0,615.0 L1176.0,600.0" fill="none" stroke="#12A05C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1194" y="615" font-size="17" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">the swap resumes</text>
+<rect x="54" y="660" width="1510" height="100" rx="12" fill="#FDF1DE" stroke="#E08A1E" stroke-width="2.4"/>
+<text x="82" y="718" font-size="19" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Correctly signed — but it crashes at runtime</text>
+<rect x="692" y="678" width="400" height="68" rx="10" fill="#FBE7E8" stroke="#D0323C" stroke-width="2"/>
+<path d="M718.4,704.4 L733.6,719.6" fill="none" stroke="#D0323C" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M733.6,704.4 L718.4,719.6" fill="none" stroke="#D0323C" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="754" y="719" font-size="17" fill="#D0323C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">device stuck — needs a probe</text>
+<rect x="1132" y="678" width="400" height="68" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2"/>
+<path d="M1157.0,712 L1164.0,719.0 L1176.0,704.0" fill="none" stroke="#12A05C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1194" y="719" font-size="17" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">reverts by itself, next boot</text>
+<rect x="64" y="800" width="1472" height="62" rx="14" fill="#03234B"/>
+<text x="800" y="840" font-size="22" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Signatures stop bad firmware. Only a second slot stops bad-but-genuine firmware.</text>
+</svg>

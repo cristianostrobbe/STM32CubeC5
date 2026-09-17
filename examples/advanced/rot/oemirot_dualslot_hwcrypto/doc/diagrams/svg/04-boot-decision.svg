@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">What the bootloader does on every single reset</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Three ways to be rejected — and nothing runs until the signature checks out</text>
+<rect x="190.0" y="158" width="560" height="54" rx="16" fill="#03234B" stroke="#03234B" stroke-width="2.4"/>
+<text x="470" y="193.0" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">RESET</text>
+<line x1="470" y1="212" x2="470" y2="248" stroke="#03234B" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arInk)"/>
+<rect x="190.0" y="248" width="560" height="66" rx="16" fill="#FFFFFF" stroke="#03234B" stroke-width="2.4"/>
+<text x="470" y="280" font-size="21" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Apply protections, check option bytes</text>
+<text x="470" y="302" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.95">MPU · tamper · WRP · HDP · RDP · boot address</text>
+<line x1="750.0" y1="281" x2="1042" y2="281" stroke="#D0323C" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="7 5" marker-end="url(#arRed)"/>
+<text x="766.0" y="269" font-size="16" fill="#D0323C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">mismatch</text>
+<rect x="1052" y="243" width="484" height="76" rx="16" fill="#FBE7E8" stroke="#D0323C" stroke-width="2"/>
+<text x="1076" y="275" font-size="19" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Chip not in the expected state</text>
+<text x="1076" y="301" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">someone changed the option bytes — halt</text>
+<line x1="470" y1="314" x2="470" y2="350" stroke="#03234B" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arInk)"/>
+<rect x="190.0" y="350" width="560" height="66" rx="16" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2.4"/>
+<text x="470" y="382" font-size="21" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Is an install requested?</text>
+<text x="470" y="404" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.95">magic trailer at the end of the secondary slot?</text>
+<line x1="470" y1="416" x2="470" y2="452" stroke="#03234B" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arInk)"/>
+<text x="486" y="440.0" font-size="16" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes</text>
+<rect x="190.0" y="452" width="560" height="66" rx="16" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2.4"/>
+<text x="470" y="484" font-size="21" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Verify the candidate</text>
+<text x="470" y="506" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.95">signature · version ≥ anti-rollback floor · dependencies</text>
+<line x1="750.0" y1="485" x2="1042" y2="485" stroke="#D0323C" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="7 5" marker-end="url(#arRed)"/>
+<text x="766.0" y="473" font-size="16" fill="#D0323C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">fail</text>
+<rect x="1052" y="447" width="484" height="76" rx="16" fill="#FBE7E8" stroke="#D0323C" stroke-width="2"/>
+<text x="1076" y="479" font-size="19" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Candidate refused</text>
+<text x="1076" y="505" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">forged, corrupted or too old — the old image keeps running</text>
+<line x1="470" y1="518" x2="470" y2="554" stroke="#03234B" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arInk)"/>
+<rect x="190.0" y="554" width="560" height="66" rx="16" fill="#FDF1DE" stroke="#E08A1E" stroke-width="2.4"/>
+<text x="470" y="586" font-size="21" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">INSTALL</text>
+<text x="470" y="608" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.95">overwrite · swap · bank flip — see the next slides</text>
+<line x1="470" y1="620" x2="470" y2="656" stroke="#03234B" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arInk)"/>
+<rect x="190.0" y="656" width="560" height="66" rx="16" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="470" y="688" font-size="21" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Verify what sits in the primary slot</text>
+<text x="470" y="710" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.95">hash reference matches? skip · otherwise verify in full, twice</text>
+<line x1="750.0" y1="689" x2="1042" y2="689" stroke="#D0323C" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="7 5" marker-end="url(#arRed)"/>
+<text x="766.0" y="677" font-size="16" fill="#D0323C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">fail</text>
+<rect x="1052" y="651" width="484" height="76" rx="16" fill="#FBE7E8" stroke="#D0323C" stroke-width="2"/>
+<text x="1076" y="683" font-size="19" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Nothing runs</text>
+<text x="1076" y="709" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">a tampered primary slot is never executed</text>
+<line x1="470" y1="722" x2="470" y2="758" stroke="#03234B" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arInk)"/>
+<rect x="190.0" y="758" width="560" height="54" rx="16" fill="#12A05C" stroke="#12A05C" stroke-width="2.4"/>
+<text x="470" y="793.0" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Close HDP · disable crypto · JUMP</text>
+<path d="M190.0,383 L150,383 L150,689 L184.0,689" fill="none" stroke="#5B6B80" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arInk)"/>
+<text x="186" y="372" font-size="16" fill="#5B6B80" text-anchor="end" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<text x="178" y="752" font-size="15" fill="#5B6B80" text-anchor="end" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the ordinary boot —</text>
+<text x="178" y="774" font-size="15" fill="#5B6B80" text-anchor="end" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">no update pending</text>
+</svg>

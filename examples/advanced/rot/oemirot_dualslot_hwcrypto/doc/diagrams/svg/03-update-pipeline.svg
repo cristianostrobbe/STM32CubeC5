@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">From build to running firmware</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The bootloader never downloads anything — it only ever looks at flash after a reset</text>
+<rect x="64" y="168" width="470" height="560" rx="18" fill="#FFFFFF" stroke="#6B5BD2" stroke-width="2.4" stroke-dasharray="9 7"/>
+<rect x="86" y="152" width="188" height="32" rx="16" fill="#6B5BD2"/>
+<text x="180.0" y="174" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">IN THE FACTORY</text>
+<text x="299.0" y="714" font-size="16" fill="#6B5BD2" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">private keys never leave</text>
+<rect x="566" y="168" width="300" height="560" rx="18" fill="#FFFFFF" stroke="#E08A1E" stroke-width="2.4" stroke-dasharray="9 7"/>
+<rect x="588" y="152" width="166" height="32" rx="16" fill="#E08A1E"/>
+<text x="671.0" y="174" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">IN THE FIELD</text>
+<text x="716.0" y="714" font-size="16" fill="#E08A1E" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">any transport you like</text>
+<rect x="898" y="168" width="638" height="560" rx="18" fill="#FFFFFF" stroke="#12A05C" stroke-width="2.4" stroke-dasharray="9 7"/>
+<rect x="920" y="152" width="177" height="32" rx="16" fill="#12A05C"/>
+<text x="1008.5" y="174" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">ON THE DEVICE</text>
+<text x="1217.0" y="714" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">the only place trust is decided</text>
+<rect x="90" y="205" width="418" height="118" rx="16" fill="#FFFFFF" stroke="#6B5BD2" stroke-width="2.2"/>
+<circle cx="124" cy="239" r="18" fill="#6B5BD2"/>
+<text x="124" y="246.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">1</text>
+<text x="154" y="235" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Build</text>
+<text x="154" y="263" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">appli.hex — plain firmware</text>
+<rect x="90" y="345" width="418" height="200" rx="16" fill="#ECE9FB" stroke="#6B5BD2" stroke-width="2.2"/>
+<circle cx="124" cy="379" r="18" fill="#6B5BD2"/>
+<text x="124" y="386.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">2</text>
+<text x="154" y="375" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Sign and encrypt</text>
+<text x="154" y="403" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">prepend a 0x400 header</text>
+<text x="154" y="427" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">encrypt the payload (AES-128)</text>
+<text x="154" y="451" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">append signature TLV (ECDSA P-256),</text>
+<text x="154" y="475" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">version, security version, hashes</text>
+<text x="299" y="588" font-size="18" fill="#6B5BD2" text-anchor="middle" font-weight="700" font-family="Consolas, Menlo, monospace">appli_fwu_enc_sign.bin</text>
+<text x="299" y="616" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">safe to publish — it is encrypted and signed</text>
+<rect x="590" y="275" width="252" height="150" rx="16" fill="#FDF1DE" stroke="#E08A1E" stroke-width="2.2"/>
+<circle cx="624" cy="309" r="18" fill="#E08A1E"/>
+<text x="624" y="316.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">3</text>
+<text x="654" y="305" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Deliver</text>
+<text x="654" y="333" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">YModem here —</text>
+<text x="654" y="357" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">BLE, USB, Ethernet</text>
+<text x="654" y="381" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">would work the same</text>
+<line x1="510" y1="350" x2="586" y2="350" stroke="#E08A1E" stroke-width="3" stroke-linecap="round" marker-end="url(#ar)"/>
+<line x1="846" y1="350" x2="918" y2="350" stroke="#E08A1E" stroke-width="3" stroke-linecap="round" marker-end="url(#ar)"/>
+<rect x="922" y="205" width="590" height="104" rx="16" fill="#FFFFFF" stroke="#12A05C" stroke-width="2.2"/>
+<circle cx="956" cy="239" r="18" fill="#12A05C"/>
+<text x="956" y="246.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">4</text>
+<text x="986" y="235" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The app stages it</text>
+<text x="986" y="263" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">erase the secondary slot, write the image into it</text>
+<rect x="922" y="325" width="590" height="104" rx="16" fill="#FFFFFF" stroke="#12A05C" stroke-width="2.2"/>
+<circle cx="956" cy="359" r="18" fill="#12A05C"/>
+<text x="956" y="366.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">5</text>
+<text x="986" y="355" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The app asks for it</text>
+<text x="986" y="383" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">write the magic trailer at the end of the slot</text>
+<rect x="922" y="445" width="590" height="84" rx="16" fill="#FFFFFF" stroke="#12A05C" stroke-width="2.2"/>
+<circle cx="956" cy="479" r="18" fill="#12A05C"/>
+<text x="956" y="486.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">6</text>
+<text x="986" y="475" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Reset</text>
+<rect x="922" y="545" width="590" height="136" rx="16" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.2"/>
+<circle cx="956" cy="579" r="18" fill="#12A05C"/>
+<text x="956" y="586.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">7</text>
+<text x="986" y="575" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The RoT decides</text>
+<text x="986" y="603" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">verify the candidate · install it · verify again</text>
+<text x="986" y="627" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">bump the anti-rollback counter · run it</text>
+<rect x="64" y="762" width="1472" height="76" rx="14" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="2"/>
+<text x="90" y="794" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Why this split matters: all the network code lives in the replaceable application.</text>
+<text x="90" y="822" font-size="18" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The immutable part stays small, offline, and has no attack surface facing the outside world.</text>
+</svg>

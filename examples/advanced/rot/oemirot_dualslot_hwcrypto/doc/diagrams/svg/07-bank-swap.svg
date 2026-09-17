@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Bank swap (mirror) — move the map, not the firmware</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">One option-byte write instead of copying 464 KB. Install time drops to almost nothing.</text>
+<text x="430" y="228" font-size="20" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SWAP_BANK = 0</text>
+<rect x="240" y="250" width="380" height="108" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="430.0" y="298.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">BANK 1</text>
+<text x="430.0" y="324.0" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">RUNNING</text>
+<rect x="240" y="372" width="380" height="108" rx="10" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2.4"/>
+<text x="430.0" y="420.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">BANK 2</text>
+<text x="430.0" y="446.0" font-size="16" fill="#1B7CA8" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">NEW IMAGE</text>
+<text x="226" y="304" font-size="15" fill="#5B6B80" text-anchor="end" font-weight="400" font-family="Consolas, Menlo, monospace">0x08000000</text>
+<text x="226" y="426" font-size="15" fill="#5B6B80" text-anchor="end" font-weight="400" font-family="Consolas, Menlo, monospace">0x08080000</text>
+<text x="1170" y="228" font-size="20" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SWAP_BANK = 1</text>
+<rect x="980" y="250" width="380" height="108" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="1170.0" y="298.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">BANK 2</text>
+<text x="1170.0" y="324.0" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">RUNNING</text>
+<rect x="980" y="372" width="380" height="108" rx="10" fill="url(#hatchGray)" stroke="#C6D0DB" stroke-width="2.4"/>
+<text x="1170.0" y="420.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">BANK 1</text>
+<text x="1170.0" y="446.0" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">PREVIOUS</text>
+<path d="M640,364 C750,364 800,304 968,304" fill="none" stroke="#6B5BD2" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arCyan)"/>
+<path d="M640,436 C750,436 800,426 968,426" fill="none" stroke="#6B5BD2" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arCyan)"/>
+<rect x="650" y="372" width="220" height="56" rx="14" fill="#6B5BD2"/>
+<text x="760" y="398" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">write one option byte</text>
+<text x="760" y="419" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">+ reset</text>
+<rect x="240" y="542" width="560" height="150" rx="16" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<path d="M276.1,584 L283.8,591.7 L297.0,575.2" fill="none" stroke="#12A05C" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="312" y="592" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">What you gain</text>
+<text x="276" y="626" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  install time ≈ 0 — nothing is copied</text>
+<text x="276" y="652" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  revert is another flip, just as fast</text>
+<text x="276" y="678" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  flash wear drops to almost nothing</text>
+<rect x="840" y="542" width="700" height="150" rx="16" fill="#FBE7E8" stroke="#D0323C" stroke-width="2.4"/>
+<path d="M878.0,576.0 L894.0,592.0" fill="none" stroke="#D0323C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M894.0,576.0 L878.0,592.0" fill="none" stroke="#D0323C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="912" y="592" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The catch you must solve first</text>
+<text x="876" y="626" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">SWAP_BANK exchanges the WHOLE map — including 0x08000000,</text>
+<text x="876" y="652" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">where the immutable RoT itself lives. The bootloader moves too.</text>
+<text x="876" y="678" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Usual answer: an identical, write-protected copy in both banks.</text>
+<rect x="240" y="722" width="1300" height="60" rx="14" fill="#FDF1DE" stroke="#E08A1E" stroke-width="2.4"/>
+<text x="890" y="760" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Status: not implemented in this repository — SWAP_BANK exists only as an option byte set to 0.</text>
+</svg>

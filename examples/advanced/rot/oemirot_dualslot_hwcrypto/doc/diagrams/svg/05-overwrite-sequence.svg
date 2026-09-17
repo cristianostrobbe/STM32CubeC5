@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Dual slot, OVERWRITE — what runs on the board today</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The new image is copied over the old one. Simple, power-fail safe, and there is no way back.</text>
+<circle cx="96" cy="230" r="21" fill="#03234B"/>
+<text x="96" y="237.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">1</text>
+<text x="132" y="206" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The app erases the download area</text>
+<rect x="132" y="220" width="493.0" height="74" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="378.5" y="251.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY SLOT</text>
+<text x="378.5" y="277.0" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">RUNNING</text>
+<rect x="639.0" y="220" width="493.0" height="74" rx="10" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="2.4" stroke-dasharray="7 6"/>
+<text x="885.5" y="251.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY SLOT</text>
+<text x="885.5" y="277.0" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">ERASED</text>
+<circle cx="96" cy="348" r="21" fill="#03234B"/>
+<text x="96" y="355.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">2</text>
+<text x="132" y="324" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">YModem writes the new image into it</text>
+<rect x="132" y="338" width="493.0" height="74" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="378.5" y="369.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY SLOT</text>
+<text x="378.5" y="395.0" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">RUNNING</text>
+<rect x="639.0" y="338" width="493.0" height="74" rx="10" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2.4"/>
+<text x="885.5" y="369.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY SLOT</text>
+<text x="885.5" y="395.0" font-size="16" fill="#1B7CA8" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">STAGED — not trusted yet</text>
+<circle cx="96" cy="466" r="21" fill="#03234B"/>
+<text x="96" y="473.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">3</text>
+<text x="132" y="442" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The app writes the magic trailer</text>
+<rect x="132" y="456" width="493.0" height="74" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="378.5" y="487.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY SLOT</text>
+<text x="378.5" y="513.0" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">RUNNING</text>
+<rect x="639.0" y="456" width="493.0" height="74" rx="10" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2.4"/>
+<text x="885.5" y="487.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY SLOT</text>
+<text x="885.5" y="513.0" font-size="16" fill="#1B7CA8" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">STAGED — not trusted yet</text>
+<rect x="958.0" y="443" width="164.0" height="26" rx="13" fill="#6B5BD2"/>
+<text x="1040.0" y="461" font-size="15" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">MAGIC @ 0xFFFF0</text>
+<circle cx="96" cy="584" r="21" fill="#03234B"/>
+<text x="96" y="591.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">4</text>
+<text x="132" y="560" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Reset — the RoT verifies, then copies</text>
+<rect x="132" y="574" width="493.0" height="74" rx="10" fill="url(#hatch)" stroke="#E08A1E" stroke-width="2.4"/>
+<text x="378.5" y="605.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY SLOT</text>
+<text x="378.5" y="631.0" font-size="16" fill="#E08A1E" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">COPY IN PROGRESS</text>
+<rect x="639.0" y="574" width="493.0" height="74" rx="10" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2.4"/>
+<text x="885.5" y="605.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY SLOT</text>
+<text x="885.5" y="631.0" font-size="16" fill="#1B7CA8" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">STAGED — not trusted yet</text>
+<circle cx="96" cy="702" r="21" fill="#03234B"/>
+<text x="96" y="709.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">5</text>
+<text x="132" y="678" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Done — the old firmware no longer exists</text>
+<rect x="132" y="692" width="493.0" height="74" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="378.5" y="723.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY SLOT</text>
+<text x="378.5" y="749.0" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">RUNNING</text>
+<rect x="639.0" y="692" width="493.0" height="74" rx="10" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="2.4" stroke-dasharray="7 6"/>
+<text x="885.5" y="723.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY SLOT</text>
+<text x="885.5" y="749.0" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">inert copy</text>
+<rect x="1174" y="190" width="362" height="214" rx="16" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<path d="M1210.1,232 L1217.8,239.7 L1231.0,223.2" fill="none" stroke="#12A05C" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1246" y="240" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Power loss is safe</text>
+<text x="1200" y="278" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The magic trailer is still set,</text>
+<text x="1200" y="302" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">so the copy simply starts again</text>
+<text x="1200" y="326" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">at the next boot. The device</text>
+<text x="1200" y="350" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">cannot be bricked mid-install.</text>
+<rect x="1174" y="424" width="362" height="234" rx="16" fill="#FBE7E8" stroke="#D0323C" stroke-width="2.4"/>
+<path d="M1212.0,458.0 L1228.0,474.0" fill="none" stroke="#D0323C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1228.0,458.0 L1212.0,474.0" fill="none" stroke="#D0323C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1246" y="474" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The one it cannot fix</text>
+<text x="1200" y="512" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">A correctly signed image that</text>
+<text x="1200" y="536" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">installs, boots, then crashes.</text>
+<text x="1200" y="560" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The old firmware is gone and</text>
+<text x="1200" y="584" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the update menu lived inside</text>
+<text x="1200" y="608" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the app — so nothing can</text>
+<text x="1200" y="632" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">recover it but a probe.</text>
+<rect x="96" y="786" width="1036" height="64" rx="14" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="2"/>
+<text x="120" y="826" font-size="19" fill="#03234B" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Forged, corrupted or out-of-date images are rejected at step 4 — before anything is overwritten.</text>
+</svg>

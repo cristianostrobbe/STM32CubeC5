@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Dual slot, SWAP — the device rescues itself</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The old firmware is kept. The new one must prove it works, or it is put back automatically.</text>
+<circle cx="96" cy="222" r="21" fill="#03234B"/>
+<text x="96" y="229.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">1</text>
+<text x="132" y="198" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Download and request, exactly as before</text>
+<rect x="132" y="212" width="673.0" height="74" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="468.5" y="243.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY SLOT</text>
+<text x="468.5" y="269.0" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">RUNNING</text>
+<rect x="819.0" y="212" width="673.0" height="74" rx="10" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2.4"/>
+<text x="1155.5" y="243.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY SLOT</text>
+<text x="1155.5" y="269.0" font-size="16" fill="#1B7CA8" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">STAGED — not trusted yet</text>
+<rect x="1414.0" y="199" width="68.0" height="26" rx="13" fill="#6B5BD2"/>
+<text x="1448.0" y="217" font-size="15" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">MAGIC</text>
+<circle cx="96" cy="344" r="21" fill="#03234B"/>
+<text x="96" y="351.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">2</text>
+<text x="132" y="320" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Reset — the RoT verifies, then EXCHANGES the two slots</text>
+<rect x="132" y="334" width="673.0" height="74" rx="10" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2.4"/>
+<text x="468.5" y="365.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY SLOT</text>
+<text x="468.5" y="391.0" font-size="16" fill="#1B7CA8" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">NEW IMAGE</text>
+<rect x="819.0" y="334" width="673.0" height="74" rx="10" fill="url(#hatchGray)" stroke="#C6D0DB" stroke-width="2.4"/>
+<text x="1155.5" y="365.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY SLOT</text>
+<text x="1155.5" y="391.0" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">PREVIOUS</text>
+<circle cx="96" cy="456" r="21" fill="#03234B"/>
+<text x="96" y="463.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">3</text>
+<text x="132" y="432" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The new firmware runs — on trial</text>
+<rect x="132" y="448" width="1360" height="56" rx="10" fill="#FDF1DE" stroke="#E08A1E" stroke-width="2.4"/>
+<text x="812" y="482" font-size="19" fill="#03234B" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">it must write the confirmation flag at 0x8BFE0  —  "I booted, keep me"</text>
+<line x1="812" y1="544" x2="812" y2="570" stroke="#03234B" stroke-width="2.6" stroke-linecap="round"/>
+<path d="M812,570 L432,570 L432,602" fill="none" stroke="#03234B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arInk)"/>
+<path d="M812,570 L1192,570 L1192,602" fill="none" stroke="#03234B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arInk)"/>
+<rect x="132" y="606" width="600" height="210" rx="16" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.6"/>
+<path d="M169.2,646 L177.6,654.4 L192.0,636.4" fill="none" stroke="#12A05C" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="210" y="654" font-size="23" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Confirmed</text>
+<text x="432" y="690" font-size="17" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the flag was written</text>
+<rect x="162" y="710" width="263.0" height="62" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="293.5" y="735.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY</text>
+<text x="293.5" y="761.0" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">RUNNING</text>
+<rect x="439.0" y="710" width="263.0" height="62" rx="10" fill="url(#hatchGray)" stroke="#C6D0DB" stroke-width="2.4"/>
+<text x="570.5" y="735.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY</text>
+<text x="570.5" y="761.0" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">PREVIOUS</text>
+<text x="432" y="798" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">the update sticks</text>
+<rect x="892" y="606" width="600" height="210" rx="16" fill="#FBE7E8" stroke="#D0323C" stroke-width="2.6"/>
+<path d="M931.2,637.2 L948.8,654.8" fill="none" stroke="#D0323C" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M948.8,637.2 L931.2,654.8" fill="none" stroke="#D0323C" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="970" y="654" font-size="23" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Not confirmed</text>
+<text x="1192" y="690" font-size="17" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">crash · hang · watchdog · power loss</text>
+<rect x="922" y="710" width="263.0" height="62" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="1053.5" y="735.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY</text>
+<text x="1053.5" y="761.0" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">PREVIOUS, restored</text>
+<rect x="1199.0" y="710" width="263.0" height="62" rx="10" fill="url(#hatchGray)" stroke="#C6D0DB" stroke-width="2.4"/>
+<text x="1330.5" y="735.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY</text>
+<text x="1330.5" y="761.0" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">the failed one</text>
+<text x="1192" y="798" font-size="17" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">the RoT swaps back by itself — no probe, no truck roll</text>
+</svg>

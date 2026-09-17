@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Six questions, in this order</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Each answer removes whole branches — the last two cannot be changed after production</text>
+<rect x="64" y="178" width="1030" height="92" rx="14" fill="#FFFFFF" stroke="#12A05C" stroke-width="2.4"/>
+<circle cx="112" cy="224" r="22" fill="#12A05C"/>
+<text x="112" y="231.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">1</text>
+<text x="154" y="218" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Is the firmware updated in the field at all?</text>
+<text x="154" y="246" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">no → single slot, and most of this is moot</text>
+<rect x="64" y="284" width="1030" height="92" rx="14" fill="#FFFFFF" stroke="#12A05C" stroke-width="2.4"/>
+<circle cx="112" cy="330" r="22" fill="#12A05C"/>
+<text x="112" y="337.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">2</text>
+<text x="154" y="324" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">If a signed firmware boots and then fails, must the device recover by itself?</text>
+<text x="154" y="352" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes → swap   ·   no → overwrite</text>
+<rect x="64" y="390" width="1030" height="92" rx="14" fill="#FFFFFF" stroke="#12A05C" stroke-width="2.4"/>
+<circle cx="112" cy="436" r="22" fill="#12A05C"/>
+<text x="112" y="443.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">3</text>
+<text x="154" y="430" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Does the application fit in ~464 KB?</text>
+<text x="154" y="458" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">no → external download slot, or revisit question 2</text>
+<rect x="64" y="496" width="1030" height="92" rx="14" fill="#FFFFFF" stroke="#1B7CA8" stroke-width="2.4"/>
+<circle cx="112" cy="542" r="22" fill="#1B7CA8"/>
+<text x="112" y="549.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">4</text>
+<text x="154" y="536" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Is the firmware confidential?</text>
+<text x="154" y="564" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">no → drop encryption   ·   yes → raw key or SAES-held key</text>
+<rect x="64" y="602" width="1030" height="92" rx="14" fill="#FFFFFF" stroke="#D0323C" stroke-width="2.4"/>
+<circle cx="112" cy="648" r="22" fill="#D0323C"/>
+<text x="112" y="655.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">5</text>
+<text x="154" y="642" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">What happens if the signing key leaks?</text>
+<text x="154" y="670" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">"we accept losing the fleet" — or design revocation NOW</text>
+<rect x="886" y="626" width="186" height="44" rx="22" fill="#D0323C"/>
+<text x="979" y="655" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">IRREVERSIBLE</text>
+<rect x="64" y="708" width="1030" height="92" rx="14" fill="#FFFFFF" stroke="#D0323C" stroke-width="2.4"/>
+<circle cx="112" cy="754" r="22" fill="#D0323C"/>
+<text x="112" y="761.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">6</text>
+<text x="154" y="748" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">What is the production lock-down?</text>
+<text x="154" y="776" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">RDP level · tamper policy · dev mode off · regression allowed or not</text>
+<rect x="886" y="732" width="186" height="44" rx="22" fill="#D0323C"/>
+<text x="979" y="761" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">IRREVERSIBLE</text>
+<rect x="1104" y="178" width="432" height="316" rx="16" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="2.4"/>
+<text x="1320.0" y="212" font-size="22" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Where the answers land</text>
+<rect x="1130" y="230" width="60" height="32" rx="8" fill="#03234B"/>
+<text x="1160" y="253" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">P0</text>
+<text x="1204" y="253" font-size="17" fill="#03234B" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Lab — ships today</text>
+<rect x="1130" y="272" width="60" height="32" rx="8" fill="#5B6B80"/>
+<text x="1160" y="295" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">P1</text>
+<text x="1204" y="295" font-size="17" fill="#03234B" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">No field update</text>
+<rect x="1130" y="314" width="60" height="32" rx="8" fill="#12A05C"/>
+<text x="1160" y="337" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">P2</text>
+<text x="1204" y="337" font-size="17" fill="#03234B" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Production overwrite</text>
+<rect x="1130" y="356" width="60" height="32" rx="8" fill="#12A05C"/>
+<text x="1160" y="379" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">P3</text>
+<text x="1204" y="379" font-size="17" fill="#03234B" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Safe update (swap)</text>
+<rect x="1130" y="398" width="60" height="32" rx="8" fill="#1B7CA8"/>
+<text x="1160" y="421" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">P4</text>
+<text x="1204" y="421" font-size="17" fill="#03234B" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Big app (external)</text>
+<rect x="1130" y="440" width="60" height="32" rx="8" fill="#6B5BD2"/>
+<text x="1160" y="463" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">P5</text>
+<text x="1204" y="463" font-size="17" fill="#03234B" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">High assurance</text>
+<rect x="1104" y="516" width="432" height="236" rx="16" fill="#FBE7E8" stroke="#D0323C" stroke-width="2.4"/>
+<text x="1320" y="560" font-size="21" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Decide 5 and 6 first</text>
+<text x="1320" y="600" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">They are listed last because the</text>
+<text x="1320" y="625" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">earlier answers shape them —</text>
+<text x="1320" y="650" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">but they must be settled before</text>
+<text x="1320" y="675" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the first device is provisioned.</text>
+<text x="1320" y="700" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">After that, the bootloader and the</text>
+<text x="1320" y="725" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">option bytes are locked forever.</text>
+<rect x="64" y="814" width="1030" height="48" rx="12" fill="#03234B"/>
+<text x="579" y="846" font-size="20" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Questions 1–4 are engineering. Questions 5–6 are commitments.</text>
+</svg>

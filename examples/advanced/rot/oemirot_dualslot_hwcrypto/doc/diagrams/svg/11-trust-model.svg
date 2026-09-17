@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">How the device knows the firmware is yours</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Signing proves who made it · encryption stops anyone reading it · they are independent choices</text>
+<text x="64" y="182" font-size="22" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">What an image actually is</text>
+<rect x="64" y="200" width="190" height="92" rx="10" fill="#6B5BD2"/>
+<text x="159.0" y="240" font-size="19" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">HEADER</text>
+<text x="159.0" y="266" font-size="15" fill="#FFFFFF" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.85">0x400</text>
+<rect x="264" y="200" width="770" height="92" rx="10" fill="#1B7CA8"/>
+<text x="649.0" y="240" font-size="19" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">ENCRYPTED PAYLOAD</text>
+<text x="649.0" y="266" font-size="15" fill="#FFFFFF" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.85">your firmware</text>
+<rect x="1044" y="200" width="410" height="92" rx="10" fill="#12A05C"/>
+<text x="1249.0" y="240" font-size="19" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">TLVs</text>
+<text x="1249.0" y="266" font-size="15" fill="#FFFFFF" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.85">hash · signature · version · dependencies</text>
+<rect x="64" y="344" width="700" height="300" rx="16" fill="#ECE9FB" stroke="#6B5BD2" stroke-width="2.4"/>
+<text x="414.0" y="378" font-size="22" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">IN THE FACTORY  (offline)</text>
+<text x="414" y="404" font-size="20" fill="#6B5BD2" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">signing PRIVATE key</text>
+<text x="414" y="434" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">never leaves — if it leaks, every device is lost</text>
+<rect x="120" y="458" width="588" height="2" rx="12" fill="#6B5BD2" opacity="0.35"/>
+<text x="414" y="496" font-size="20" fill="#6B5BD2" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">encryption key (ECIES P-256)</text>
+<text x="414" y="526" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">scrambles the payload with AES-128</text>
+<text x="414" y="590" font-size="17" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">one key pair today — no revocation path</text>
+<text x="414" y="616" font-size="15" fill="#D0323C" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.85">and the bootloader is immutable, so it cannot be added later</text>
+<rect x="836" y="344" width="700" height="300" rx="16" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="1186.0" y="378" font-size="22" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">ON THE DEVICE  (0x12000, hidden by HDP)</text>
+<text x="1186" y="404" font-size="20" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SHA-256 of the public key   (32 bytes)</text>
+<text x="1186" y="434" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">not the key itself — the image carries that, and the hash proves it</text>
+<rect x="892" y="458" width="588" height="2" rx="12" fill="#12A05C" opacity="0.35"/>
+<text x="1186" y="496" font-size="20" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">decryption key — raw in flash</text>
+<text x="1186" y="526" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">readable by anyone who defeats RDP and HDP</text>
+<text x="1186" y="590" font-size="17" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">stronger option: keep it inside SAES hardware</text>
+<text x="1186" y="616" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">so the usable key never exists in readable memory</text>
+<path d="M764,470 C790,470 810,470 830,470" fill="none" stroke="#03234B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arInk)"/>
+<rect x="64" y="686" width="1472" height="156" rx="16" fill="#FFFFFF" stroke="#C6D0DB" stroke-width="2"/>
+<text x="90" y="726" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Two questions people mix up:</text>
+<path d="M103.45,764 L110.1,770.65 L121.5,756.4" fill="none" stroke="#12A05C" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="140" y="771" font-size="19" fill="#03234B" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">"Is this firmware really from us?"  →  SIGNING. Without it, anyone can install anything.</text>
+<path d="M103.45,810 L110.1,816.65 L121.5,802.4" fill="none" stroke="#12A05C" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="140" y="817" font-size="19" fill="#03234B" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">"Can a competitor read our firmware?"  →  ENCRYPTION. Optional — drop it and one key leaves the device.</text>
+</svg>

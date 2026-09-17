@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Where everything lives — 1 MB of flash</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">STM32C5A3ZG · two 512 KB banks · 8 KB pages · offsets from flash_layout.h</text>
+<rect x="64" y="252" width="103.5" height="122" rx="8" fill="#03234B"/>
+<text x="115.75" y="319.0" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">RoT code</text>
+<rect x="167.5" y="252" width="34.5" height="122" rx="8" fill="#6B5BD2"/>
+<rect x="202.0" y="252" width="667.0" height="122" rx="8" fill="#12A05C"/>
+<text x="535.5" y="309.0" font-size="23" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY SLOT</text>
+<text x="535.5" y="339.0" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.85">the firmware that runs</text>
+<rect x="869.0" y="252" width="667.0" height="122" rx="8" fill="#1B7CA8"/>
+<text x="1202.5" y="309.0" font-size="23" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY SLOT</text>
+<text x="1202.5" y="339.0" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.85">download area</text>
+<line x1="64.0" y1="238" x2="64.0" y2="252" stroke="#5B6B80" stroke-width="1.6" stroke-linecap="round"/>
+<text x="64.0" y="228" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="600" font-family="Consolas, Menlo, monospace">0x00000</text>
+<line x1="202.0" y1="238" x2="202.0" y2="252" stroke="#5B6B80" stroke-width="1.6" stroke-linecap="round"/>
+<text x="202.0" y="228" font-size="17" fill="#5B6B80" text-anchor="middle" font-weight="600" font-family="Consolas, Menlo, monospace">0x18000</text>
+<line x1="869.0" y1="238" x2="869.0" y2="252" stroke="#5B6B80" stroke-width="1.6" stroke-linecap="round"/>
+<text x="869.0" y="228" font-size="17" fill="#5B6B80" text-anchor="middle" font-weight="600" font-family="Consolas, Menlo, monospace">0x8C000</text>
+<line x1="1536.0" y1="238" x2="1536.0" y2="252" stroke="#5B6B80" stroke-width="1.6" stroke-linecap="round"/>
+<text x="1536.0" y="228" font-size="17" fill="#5B6B80" text-anchor="end" font-weight="600" font-family="Consolas, Menlo, monospace">0x100000</text>
+<line x1="800.0" y1="200" x2="800.0" y2="374" stroke="#D0323C" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="8 6"/>
+<text x="800.0" y="192" font-size="17" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">bank 1  |  bank 2</text>
+<text x="115.75" y="404" font-size="18" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">72 KB</text>
+<text x="535.5" y="404" font-size="18" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">464 KB</text>
+<text x="1202.5" y="404" font-size="18" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">464 KB</text>
+<path d="M64,428 L64,440 L179.0,440 L179.0,428" fill="none" stroke="#03234B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="187.0" y1="440" x2="628" y2="440" stroke="#03234B" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 5" opacity="0.7"/>
+<text x="640" y="446" font-size="18" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">WRP — cannot be erased or written</text>
+<path d="M64,486 L64,498 L202.0,498 L202.0,486" fill="none" stroke="#6B5BD2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="210.0" y1="498" x2="628" y2="498" stroke="#6B5BD2" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 5" opacity="0.7"/>
+<text x="640" y="504" font-size="18" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">HDP — invisible once the application runs</text>
+<path d="M167.5,374 L300,604" fill="none" stroke="#6B5BD2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 6" opacity="0.7"/>
+<path d="M202.0,374 L1020,604" fill="none" stroke="#6B5BD2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 6" opacity="0.7"/>
+<rect x="167.5" y="252" width="34.5" height="122" rx="4" fill="none" stroke="#6B5BD2" stroke-width="3"/>
+<rect x="300" y="604" width="720" height="196" rx="16" fill="#ECE9FB" stroke="#6B5BD2" stroke-width="2.4"/>
+<text x="660.0" y="642" font-size="21" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">the 24 KB the RoT keeps for itself</text>
+<text x="326" y="686" font-size="17" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Consolas, Menlo, monospace">0x12000</text>
+<text x="436" y="686" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">keys</text>
+<text x="558" y="686" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">hash of the signing public key + the decryption key</text>
+<text x="326" y="724" font-size="17" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Consolas, Menlo, monospace">0x14000</text>
+<text x="436" y="724" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">counters</text>
+<text x="558" y="724" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">anti-rollback floor — refuses older firmware</text>
+<text x="326" y="762" font-size="17" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Consolas, Menlo, monospace">0x16000</text>
+<text x="436" y="762" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">hash refs</text>
+<text x="558" y="762" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">lets a known-good image skip the signature check</text>
+<rect x="64" y="832" width="1472" height="2" rx="12" fill="#C6D0DB"/>
+<text x="64" y="874" font-size="20" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Two slots of the same size is what makes a safe update possible — and it is why the app budget is 464 KB, not 925 KB.</text>
+</svg>

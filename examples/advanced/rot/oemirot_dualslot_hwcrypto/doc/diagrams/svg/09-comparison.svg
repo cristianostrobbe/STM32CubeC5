@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Side by side</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Green is where a choice costs you nothing — amber and red are where it bites</text>
+<rect x="444" y="154" width="212" height="50" rx="10" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="1.6"/>
+<text x="550.0" y="188" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Single slot</text>
+<rect x="666" y="154" width="212" height="50" rx="10" fill="#03234B"/>
+<text x="772.0" y="188" font-size="19" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Overwrite</text>
+<rect x="888" y="154" width="212" height="50" rx="10" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="1.6"/>
+<text x="994.0" y="188" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Swap</text>
+<rect x="1110" y="154" width="212" height="50" rx="10" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="1.6"/>
+<text x="1216.0" y="188" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Bank swap</text>
+<rect x="1332" y="154" width="212" height="50" rx="10" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="1.6"/>
+<text x="1438.0" y="188" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">External</text>
+<rect x="64" y="210" width="1480" height="64" rx="8" fill="#EFF3F7"/>
+<text x="82" y="254" font-size="19" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Application budget</text>
+<rect x="452" y="220" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="550.0" y="254" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">~925 KB</text>
+<rect x="674" y="220" width="196" height="44" rx="9" fill="#FDF1DE" stroke="#E08A1E" stroke-width="1.8"/>
+<text x="772.0" y="254" font-size="17" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">~464 KB</text>
+<rect x="896" y="220" width="196" height="44" rx="9" fill="#FDF1DE" stroke="#E08A1E" stroke-width="1.8"/>
+<text x="994.0" y="254" font-size="17" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">~460 KB</text>
+<rect x="1118" y="220" width="196" height="44" rx="9" fill="#FDF1DE" stroke="#E08A1E" stroke-width="1.8"/>
+<text x="1216.0" y="254" font-size="17" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">~460 KB</text>
+<rect x="1340" y="220" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="1438.0" y="254" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">~925 KB</text>
+<text x="82" y="326" font-size="19" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Install time</text>
+<rect x="452" y="292" width="196" height="44" rx="9" fill="#FFFFFF" stroke="#5B6B80" stroke-width="1.8"/>
+<text x="550.0" y="326" font-size="17" fill="#5B6B80" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">n/a</text>
+<rect x="674" y="292" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="772.0" y="326" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">one copy</text>
+<rect x="896" y="292" width="196" height="44" rx="9" fill="#FDF1DE" stroke="#E08A1E" stroke-width="1.8"/>
+<text x="994.0" y="326" font-size="17" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">two copies</text>
+<rect x="1118" y="292" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="1216.0" y="326" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">instant</text>
+<rect x="1340" y="292" width="196" height="44" rx="9" fill="#FDF1DE" stroke="#E08A1E" stroke-width="1.8"/>
+<text x="1438.0" y="326" font-size="17" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">copy + QSPI</text>
+<rect x="64" y="354" width="1480" height="64" rx="8" fill="#EFF3F7"/>
+<text x="82" y="398" font-size="19" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Old firmware kept</text>
+<rect x="452" y="364" width="196" height="44" rx="9" fill="#FBE7E8" stroke="#D0323C" stroke-width="1.8"/>
+<text x="550.0" y="398" font-size="17" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<rect x="674" y="364" width="196" height="44" rx="9" fill="#FBE7E8" stroke="#D0323C" stroke-width="1.8"/>
+<text x="772.0" y="398" font-size="17" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<rect x="896" y="364" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="994.0" y="398" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes</text>
+<rect x="1118" y="364" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="1216.0" y="398" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes</text>
+<rect x="1340" y="364" width="196" height="44" rx="9" fill="#FBE7E8" stroke="#D0323C" stroke-width="1.8"/>
+<text x="1438.0" y="398" font-size="17" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<text x="82" y="470" font-size="19" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Auto-revert on crash</text>
+<rect x="452" y="436" width="196" height="44" rx="9" fill="#FBE7E8" stroke="#D0323C" stroke-width="1.8"/>
+<text x="550.0" y="470" font-size="17" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<rect x="674" y="436" width="196" height="44" rx="9" fill="#FBE7E8" stroke="#D0323C" stroke-width="1.8"/>
+<text x="772.0" y="470" font-size="17" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<rect x="896" y="436" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="994.0" y="470" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes</text>
+<rect x="1118" y="436" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="1216.0" y="470" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes</text>
+<rect x="1340" y="436" width="196" height="44" rx="9" fill="#FBE7E8" stroke="#D0323C" stroke-width="1.8"/>
+<text x="1438.0" y="470" font-size="17" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<rect x="64" y="498" width="1480" height="64" rx="8" fill="#EFF3F7"/>
+<text x="82" y="542" font-size="19" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">App must confirm</text>
+<rect x="452" y="508" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="550.0" y="542" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<rect x="674" y="508" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="772.0" y="542" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<rect x="896" y="508" width="196" height="44" rx="9" fill="#FDF1DE" stroke="#E08A1E" stroke-width="1.8"/>
+<text x="994.0" y="542" font-size="17" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes</text>
+<rect x="1118" y="508" width="196" height="44" rx="9" fill="#FDF1DE" stroke="#E08A1E" stroke-width="1.8"/>
+<text x="1216.0" y="542" font-size="17" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes</text>
+<rect x="1340" y="508" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="1438.0" y="542" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<text x="82" y="614" font-size="19" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Power-fail safe install</text>
+<rect x="452" y="580" width="196" height="44" rx="9" fill="#FBE7E8" stroke="#D0323C" stroke-width="1.8"/>
+<text x="550.0" y="614" font-size="17" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<rect x="674" y="580" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="772.0" y="614" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes</text>
+<rect x="896" y="580" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="994.0" y="614" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes</text>
+<rect x="1118" y="580" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="1216.0" y="614" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes</text>
+<rect x="1340" y="580" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="1438.0" y="614" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes</text>
+<rect x="64" y="642" width="1480" height="64" rx="8" fill="#EFF3F7"/>
+<text x="82" y="686" font-size="19" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Extra hardware</text>
+<rect x="452" y="652" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="550.0" y="686" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<rect x="674" y="652" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="772.0" y="686" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<rect x="896" y="652" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="994.0" y="686" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<rect x="1118" y="652" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="1216.0" y="686" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no</text>
+<rect x="1340" y="652" width="196" height="44" rx="9" fill="#FDF1DE" stroke="#E08A1E" stroke-width="1.8"/>
+<text x="1438.0" y="686" font-size="17" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">QSPI chip</text>
+<text x="82" y="758" font-size="19" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Status in this repo</text>
+<rect x="452" y="724" width="196" height="44" rx="9" fill="#FFFFFF" stroke="#5B6B80" stroke-width="1.8"/>
+<text x="550.0" y="758" font-size="17" fill="#5B6B80" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">not built</text>
+<rect x="674" y="724" width="196" height="44" rx="9" fill="#E2F5EC" stroke="#12A05C" stroke-width="1.8"/>
+<text x="772.0" y="758" font-size="17" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">WORKS TODAY</text>
+<rect x="896" y="724" width="196" height="44" rx="9" fill="#FDF1DE" stroke="#E08A1E" stroke-width="1.8"/>
+<text x="994.0" y="758" font-size="17" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">app side ready</text>
+<rect x="1118" y="724" width="196" height="44" rx="9" fill="#FBE7E8" stroke="#D0323C" stroke-width="1.8"/>
+<text x="1216.0" y="758" font-size="17" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">not implemented</text>
+<rect x="1340" y="724" width="196" height="44" rx="9" fill="#FDF1DE" stroke="#E08A1E" stroke-width="1.8"/>
+<text x="1438.0" y="758" font-size="17" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">driver only</text>
+<text x="64" y="840" font-size="19" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">"Works today" is the column the board boots from right now. Everything else is a decision, not a fact.</text>
+</svg>

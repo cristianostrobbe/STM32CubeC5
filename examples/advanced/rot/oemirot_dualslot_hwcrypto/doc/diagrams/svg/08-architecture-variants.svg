@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Four ways to arrange the flash</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Same bootloader (navy), same cryptography — only the slot strategy changes</text>
+<rect x="64" y="180" width="356" height="470" rx="16" fill="#FFFFFF" stroke="#C6D0DB" stroke-width="2.4"/>
+<rect x="64" y="180" width="356" height="6" rx="3" fill="#D0323C"/>
+<text x="242.0" y="226" font-size="21" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SINGLE SLOT</text>
+<text x="242.0" y="252" font-size="16" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no field update</text>
+<rect x="92" y="280" width="28.125" height="62" rx="6" fill="#03234B"/>
+<rect x="120.125" y="280" width="271.875" height="62" rx="6" fill="#12A05C"/>
+<text x="256.0625" y="318" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">APPLICATION</text>
+<text x="242.0" y="458" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">~925 KB for the app</text>
+<text x="242.0" y="496" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">a probe is the only way in</text>
+<path d="M101.6,533.6 L114.4,546.4" fill="none" stroke="#D0323C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M114.4,533.6 L101.6,546.4" fill="none" stroke="#D0323C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="132" y="547" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">auto-revert</text>
+<path d="M101.6,569.6 L114.4,582.4" fill="none" stroke="#D0323C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M114.4,569.6 L101.6,582.4" fill="none" stroke="#D0323C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="132" y="583" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">field update</text>
+<path d="M100.35,612 L106.3,617.95 L116.5,605.2" fill="none" stroke="#12A05C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="132" y="619" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">no extra hardware</text>
+<rect x="452" y="180" width="356" height="470" rx="16" fill="#FFFFFF" stroke="#C6D0DB" stroke-width="2.4"/>
+<rect x="452" y="180" width="356" height="6" rx="3" fill="#E08A1E"/>
+<text x="630.0" y="226" font-size="21" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">DUAL — OVERWRITE</text>
+<text x="630.0" y="252" font-size="16" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">runs today</text>
+<rect x="480" y="280" width="28.125" height="62" rx="6" fill="#03234B"/>
+<rect x="508.125" y="280" width="135.9375" height="62" rx="6" fill="#12A05C"/>
+<text x="576.09375" y="318" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY</text>
+<rect x="644.0625" y="280" width="135.9375" height="62" rx="6" fill="#1B7CA8"/>
+<text x="712.03125" y="318" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY</text>
+<text x="630.0" y="458" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">~464 KB for the app</text>
+<text x="630.0" y="496" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">no way back from a bad image</text>
+<path d="M489.6,533.6 L502.4,546.4" fill="none" stroke="#D0323C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M502.4,533.6 L489.6,546.4" fill="none" stroke="#D0323C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="520" y="547" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">auto-revert</text>
+<path d="M488.35,576 L494.3,581.95 L504.5,569.2" fill="none" stroke="#12A05C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="520" y="583" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">field update</text>
+<path d="M488.35,612 L494.3,617.95 L504.5,605.2" fill="none" stroke="#12A05C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="520" y="619" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">no extra hardware</text>
+<rect x="840" y="180" width="356" height="470" rx="16" fill="#FFFFFF" stroke="#C6D0DB" stroke-width="2.4"/>
+<rect x="840" y="180" width="356" height="6" rx="3" fill="#12A05C"/>
+<text x="1018.0" y="226" font-size="21" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">DUAL — SWAP</text>
+<text x="1018.0" y="252" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">auto-revert</text>
+<rect x="868" y="280" width="28.125" height="62" rx="6" fill="#03234B"/>
+<rect x="896.125" y="280" width="135.9375" height="62" rx="6" fill="#12A05C"/>
+<text x="964.09375" y="318" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY</text>
+<rect x="1032.0625" y="280" width="135.9375" height="62" rx="6" fill="#1B7CA8"/>
+<text x="1100.03125" y="318" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY</text>
+<text x="1018.0" y="458" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">~460 KB for the app</text>
+<text x="1018.0" y="496" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the old image is preserved</text>
+<path d="M876.35,540 L882.3,545.95 L892.5,533.2" fill="none" stroke="#12A05C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="908" y="547" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">auto-revert</text>
+<path d="M876.35,576 L882.3,581.95 L892.5,569.2" fill="none" stroke="#12A05C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="908" y="583" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">field update</text>
+<path d="M876.35,612 L882.3,617.95 L892.5,605.2" fill="none" stroke="#12A05C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="908" y="619" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">no extra hardware</text>
+<rect x="1228" y="180" width="356" height="470" rx="16" fill="#FFFFFF" stroke="#C6D0DB" stroke-width="2.4"/>
+<rect x="1228" y="180" width="356" height="6" rx="3" fill="#12A05C"/>
+<text x="1406.0" y="226" font-size="21" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">EXTERNAL DOWNLOAD</text>
+<text x="1406.0" y="252" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">big app</text>
+<rect x="1256" y="280" width="28.125" height="62" rx="6" fill="#03234B"/>
+<rect x="1284.125" y="280" width="271.875" height="62" rx="6" fill="#12A05C"/>
+<text x="1420.0625" y="318" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">APPLICATION</text>
+<rect x="1256" y="362" width="300" height="54" rx="8" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2.2" stroke-dasharray="7 5"/>
+<text x="1406.0" y="386" font-size="15" fill="#1B7CA8" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">QSPI — SECONDARY</text>
+<text x="1406.0" y="406" font-size="13" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">external component</text>
+<text x="1406.0" y="458" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">~925 KB for the app</text>
+<text x="1406.0" y="496" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">secondary slot lives on QSPI</text>
+<path d="M1265.6,533.6 L1278.4,546.4" fill="none" stroke="#D0323C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1278.4,533.6 L1265.6,546.4" fill="none" stroke="#D0323C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1296" y="547" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">auto-revert</text>
+<path d="M1264.35,576 L1270.3,581.95 L1280.5,569.2" fill="none" stroke="#12A05C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1296" y="583" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">field update</text>
+<path d="M1265.6,605.6 L1278.4,618.4" fill="none" stroke="#D0323C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1278.4,605.6 L1265.6,618.4" fill="none" stroke="#D0323C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1296" y="619" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">no extra hardware</text>
+<rect x="64" y="690" width="1472" height="150" rx="16" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="2"/>
+<text x="90" y="730" font-size="22" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The question that picks the column:</text>
+<text x="90" y="774" font-size="21" fill="#03234B" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">"If a correctly signed firmware installs, boots, and then fails — who rescues the device?"</text>
+<text x="90" y="812" font-size="18" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The bootloader (swap) · a human with a probe (overwrite, single slot) · nobody (a locked device).</text>
+</svg>
