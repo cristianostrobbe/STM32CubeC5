@@ -4,6 +4,10 @@ Working document. Part 1 describes **what the example actually is**, as built fr
 sources in this folder. Part 2 is the **open discussion** on the architecture we want to
 implement (signing scheme, flash layout, install mode, crypto backend).
 
+> For a from-zero explanation of every configuration knob, the combinations that are
+> legal, and a shortlist of complete candidate configurations, see
+> [`ARCHITECTURE_CHOICES.md`](ARCHITECTURE_CHOICES.md).
+
 Target: NUCLEO-C5A3ZG (STM32C5A3ZGT6, Cortex-M33 **without TrustZone in this setup**,
 1 MB flash in 2 × 512 KB banks, 8 KB pages).
 Sources referenced below are relative to `NUCLEO-C5A3ZG/`.
