@@ -31,6 +31,10 @@ SLIDES = [
     ("11-trust-model",
      "Signing and encryption answer different questions. Note the two weak points we own: "
      "a single key pair with no revocation path, and a decryption key sitting raw in flash."),
+    ("11b-decryption-timeline",
+     "Answers 'when is it decrypted'. The headline: twice, both inside the bootloader, both "
+     "during one install, never afterwards. The 'why twice' box is the part people ask about "
+     "- verification must finish before installation starts."),
     ("02-flash-map",
      "Real offsets from flash_layout.h. The headline number is 464 KB usable out of 1 MB - "
      "that is the price of the second slot, and it drives most of the later decisions."),
@@ -53,6 +57,10 @@ SLIDES = [
     ("07-bank-swap",
      "Attractive on paper - instant install. Be honest about the open question: SWAP_BANK "
      "moves the bootloader too, and nothing in our repo implements this yet."),
+    ("07b-bank-swap-cost",
+     "The cost side of bank swap. Immutable things mirror harmlessly; runtime-written state "
+     "(counters, calibration) does not - for the anti-rollback counter that is a security "
+     "hole. And the doubled RoT leaves ~40 KB LESS for the application than dual-slot swap."),
     ("08-architecture-variants",
      "The four arrangements side by side. The closing question is the one that actually "
      "picks a column; everything else follows from it."),

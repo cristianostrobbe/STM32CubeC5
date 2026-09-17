@@ -12,7 +12,7 @@ Slide-ready versions of the schemes in [`../../DOC.md`](../../DOC.md),
 | `generate_diagrams.py` | regenerates everything in `svg/` and `png/` |
 | `build_pptx.py` | rebuilds the deck from `png/` |
 
-## The eighteen diagrams
+## The twenty diagrams
 
 | # | File | Shows |
 |---|---|---|
@@ -24,10 +24,12 @@ Slide-ready versions of the schemes in [`../../DOC.md`](../../DOC.md),
 | 05 | `05-overwrite-sequence` | dual-slot overwrite, step by step (what runs today) |
 | 05b | `05b-why-install-request` | why the app must explicitly ask for installation, not just download |
 | 06 | `06-swap-sequence` | dual-slot swap, with the confirm / auto-revert branch |
+| 07b | `07b-bank-swap-cost` | what bank swap would force you to mirror, and the flash it costs |
 | 07 | `07-bank-swap` | the `SWAP_BANK` mirror idea, and its open question |
 | 08 | `08-architecture-variants` | the four slot arrangements side by side |
 | 09 | `09-comparison` | full trade-off matrix, including status in this repo |
 | 10 | `10-failure-modes` | what happens to a bad image, overwrite vs. swap |
+| 11b | `11b-decryption-timeline` | at which stage the image is decrypted — twice, both inside the bootloader |
 | 11 | `11-trust-model` | signing vs. encryption, and where each key lives |
 | 12 | `12-decision-tree` | the six questions, in the order to answer them |
 | 13 | `13-faq-images` | FAQ — the magic trailer, and why the app writes the image still encrypted |

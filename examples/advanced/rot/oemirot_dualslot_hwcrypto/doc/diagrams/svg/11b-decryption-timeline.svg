@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">When exactly is the image decrypted?</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Twice — both times inside the bootloader, both during one install. Never afterwards.</text>
+<rect x="64" y="178" width="280" height="326" rx="14" fill="#FFFFFF" stroke="#6B5BD2" stroke-width="2.4"/>
+<rect x="64" y="178" width="280" height="52" rx="14" fill="#6B5BD2"/>
+<rect x="64" y="208" width="280" height="22" rx="12" fill="#6B5BD2"/>
+<text x="204.0" y="212" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">FACTORY</text>
+<circle cx="92" cy="204" r="15" fill="#FFFFFF"/>
+<text x="92" y="211.5" font-size="21" fill="#6B5BD2" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">1</text>
+<text x="204.0" y="268" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">sign the PLAINTEXT first,</text>
+<text x="204.0" y="294" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">then encrypt the payload</text>
+<text x="204.0" y="320" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the AES key is wrapped</text>
+<text x="204.0" y="346" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">with ECIES into a TLV</text>
+<rect x="80" y="420" width="248" height="44" rx="22" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="1.6"/>
+<text x="204.0" y="448" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no decryption</text>
+<text x="353" y="350" font-size="30" fill="#5B6B80" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">›</text>
+<rect x="362" y="178" width="280" height="326" rx="14" fill="#FFFFFF" stroke="#1B7CA8" stroke-width="2.4"/>
+<rect x="362" y="178" width="280" height="52" rx="14" fill="#1B7CA8"/>
+<rect x="362" y="208" width="280" height="22" rx="12" fill="#1B7CA8"/>
+<text x="502.0" y="212" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">DOWNLOAD</text>
+<circle cx="390" cy="204" r="15" fill="#FFFFFF"/>
+<text x="390" y="211.5" font-size="21" fill="#1B7CA8" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">2</text>
+<text x="502.0" y="268" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the app writes bytes</text>
+<text x="502.0" y="294" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">it cannot read</text>
+<text x="502.0" y="320" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">secondary slot</text>
+<text x="502.0" y="346" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">= ciphertext</text>
+<rect x="378" y="420" width="248" height="44" rx="22" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="1.6"/>
+<text x="502.0" y="448" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no decryption</text>
+<text x="651" y="350" font-size="30" fill="#5B6B80" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">›</text>
+<rect x="660" y="178" width="280" height="326" rx="14" fill="#FFFFFF" stroke="#E08A1E" stroke-width="2.4"/>
+<rect x="660" y="178" width="280" height="52" rx="14" fill="#E08A1E"/>
+<rect x="660" y="208" width="280" height="22" rx="12" fill="#E08A1E"/>
+<text x="800.0" y="212" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">VERIFY CANDIDATE</text>
+<circle cx="688" cy="204" r="15" fill="#FFFFFF"/>
+<text x="688" y="211.5" font-size="21" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">3</text>
+<text x="800.0" y="268" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">decrypt block by block</text>
+<text x="800.0" y="294" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">IN RAM while hashing —</text>
+<text x="800.0" y="320" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the signature covers the</text>
+<text x="800.0" y="346" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">plaintext. Nothing written.</text>
+<rect x="676" y="420" width="248" height="44" rx="22" fill="#E08A1E"/>
+<text x="800.0" y="448" font-size="15" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">DECRYPT — pass 1</text>
+<text x="949" y="350" font-size="30" fill="#5B6B80" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">›</text>
+<rect x="958" y="178" width="280" height="326" rx="14" fill="#FFFFFF" stroke="#E08A1E" stroke-width="2.4"/>
+<rect x="958" y="178" width="280" height="52" rx="14" fill="#E08A1E"/>
+<rect x="958" y="208" width="280" height="22" rx="12" fill="#E08A1E"/>
+<text x="1098.0" y="212" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">INSTALL</text>
+<circle cx="986" cy="204" r="15" fill="#FFFFFF"/>
+<text x="986" y="211.5" font-size="21" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">4</text>
+<text x="1098.0" y="268" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">decrypt while copying</text>
+<text x="1098.0" y="294" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">into the primary slot.</text>
+<text x="1098.0" y="320" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">This one persists:</text>
+<text x="1098.0" y="346" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">plaintext lands in flash.</text>
+<rect x="974" y="420" width="248" height="44" rx="22" fill="#E08A1E"/>
+<text x="1098.0" y="448" font-size="15" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">DECRYPT — pass 2</text>
+<text x="1247" y="350" font-size="30" fill="#5B6B80" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">›</text>
+<rect x="1256" y="178" width="280" height="326" rx="14" fill="#FFFFFF" stroke="#12A05C" stroke-width="2.4"/>
+<rect x="1256" y="178" width="280" height="52" rx="14" fill="#12A05C"/>
+<rect x="1256" y="208" width="280" height="22" rx="12" fill="#12A05C"/>
+<text x="1396.0" y="212" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">EVERY BOOT AFTER</text>
+<circle cx="1284" cy="204" r="15" fill="#FFFFFF"/>
+<text x="1284" y="211.5" font-size="21" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">5</text>
+<text x="1396.0" y="268" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">primary slot is plaintext:</text>
+<text x="1396.0" y="294" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">hash it directly, or skip</text>
+<text x="1396.0" y="320" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">via the hash reference.</text>
+<text x="1396.0" y="346" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Runtime: crypto clocks off.</text>
+<rect x="1272" y="420" width="248" height="44" rx="22" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="1.6"/>
+<text x="1396.0" y="448" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">no decryption</text>
+<rect x="500" y="518" width="600" height="44" rx="22" fill="#ECE9FB" stroke="#6B5BD2" stroke-width="2"/>
+<text x="800" y="546" font-size="16" fill="#6B5BD2" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">before pass 1: unwrap the AES key with the ECIES private key</text>
+<rect x="64" y="586" width="720" height="152" rx="16" fill="#FFFFFF" stroke="#03234B" stroke-width="2.4"/>
+<text x="88" y="624" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Why twice, and not once?</text>
+<text x="88" y="656" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Verification must finish BEFORE installation starts.</text>
+<text x="88" y="680" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Pass 1 is throwaway — it only reconstructs the hash.</text>
+<text x="88" y="704" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Install-then-verify would let a forged image overwrite</text>
+<text x="88" y="728" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">your working firmware before you discovered it was bad.</text>
+<rect x="816" y="586" width="720" height="152" rx="16" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="840" y="624" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Where plaintext exists</text>
+<text x="840" y="654" font-size="16" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">secondary slot</text>
+<text x="996" y="654" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">never — ciphertext from download until install</text>
+<text x="840" y="678" font-size="16" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">primary slot</text>
+<text x="996" y="678" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">always, once installed — this is what the CPU runs</text>
+<text x="840" y="702" font-size="16" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">RAM</text>
+<text x="996" y="702" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">transiently, block by block, during passes 1 and 2</text>
+<rect x="64" y="756" width="1472" height="52" rx="12" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2"/>
+<text x="800" y="790" font-size="18" fill="#03234B" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">SWAP mode adds a third pass: the outgoing image is RE-ENCRYPTED on its way into the secondary slot.</text>
+<text x="64" y="848" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Encryption protects the image in transit and while it is staged. The installed image sits in flash as plaintext — what protects it there is RDP and WRP.</text>
+</svg>

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Bank swap — what you would actually have to mirror</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The flip moves every address, so anything at a fixed address needs a copy in both banks</text>
+<text x="64" y="182" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">What needs a copy in both banks</text>
+<rect x="64" y="200" width="900" height="56" rx="10" fill="#FBE7E8"/>
+<rect x="64" y="200" width="7" height="56" rx="4" fill="#D0323C"/>
+<text x="88" y="224" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Bootloader (RoT)</text>
+<text x="88" y="246" font-size="14" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the flip moves 0x08000000, so whichever bank lands low needs a working RoT at offset 0</text>
+<text x="950" y="224" font-size="15" fill="#D0323C" text-anchor="end" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">YES — two identical copies</text>
+<rect x="64" y="262" width="900" height="56" rx="10" fill="#EFF3F7"/>
+<rect x="64" y="262" width="7" height="56" rx="4" fill="#12A05C"/>
+<text x="88" y="286" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Application</text>
+<text x="88" y="308" font-size="14" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the two banks hold DIFFERENT images, new and old — that is the entire point</text>
+<text x="950" y="286" font-size="15" fill="#12A05C" text-anchor="end" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">NO</text>
+<rect x="64" y="324" width="900" height="56" rx="10" fill="#EFF3F7"/>
+<rect x="64" y="324" width="7" height="56" rx="4" fill="#E08A1E"/>
+<text x="88" y="348" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Keys (pubkey hash, enc key)</text>
+<text x="88" y="370" font-size="14" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">they never change after provisioning, so the two copies stay identical</text>
+<text x="950" y="348" font-size="15" fill="#E08A1E" text-anchor="end" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes, harmlessly</text>
+<rect x="64" y="386" width="900" height="56" rx="10" fill="#FBE7E8"/>
+<rect x="64" y="386" width="7" height="56" rx="4" fill="#D0323C"/>
+<text x="88" y="410" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">NV counters (anti-rollback)</text>
+<text x="88" y="432" font-size="14" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">written at runtime, so the copies drift apart</text>
+<text x="950" y="410" font-size="15" fill="#D0323C" text-anchor="end" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes — and that is a problem</text>
+<rect x="64" y="448" width="900" height="56" rx="10" fill="#FBE7E8"/>
+<rect x="64" y="448" width="7" height="56" rx="4" fill="#D0323C"/>
+<text x="88" y="472" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Hash references</text>
+<text x="88" y="494" font-size="14" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the inactive bank's cache does not match the image now running</text>
+<text x="950" y="472" font-size="15" fill="#D0323C" text-anchor="end" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes, and they go stale</text>
+<rect x="64" y="510" width="900" height="56" rx="10" fill="#FBE7E8"/>
+<rect x="64" y="510" width="7" height="56" rx="4" fill="#D0323C"/>
+<text x="88" y="534" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Calibration / config</text>
+<text x="88" y="556" font-size="14" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the APPLICATION writes it, so a write after a flip lands in one bank only</text>
+<text x="950" y="534" font-size="15" fill="#D0323C" text-anchor="end" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes, and worse</text>
+<rect x="64" y="572" width="900" height="56" rx="10" fill="#EFF3F7"/>
+<rect x="64" y="572" width="7" height="56" rx="4" fill="#E08A1E"/>
+<text x="88" y="596" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Install-request flag</text>
+<text x="88" y="618" font-size="14" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">no "secondary slot" to put a trailer at the end of</text>
+<text x="950" y="596" font-size="15" fill="#E08A1E" text-anchor="end" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">mechanism changes entirely</text>
+<rect x="992" y="200" width="544" height="226" rx="16" fill="#FBE7E8" stroke="#D0323C" stroke-width="2.4"/>
+<text x="1016" y="240" font-size="21" fill="#D0323C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The mutable-state problem</text>
+<text x="1016" y="274" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Duplicating something that never changes is free.</text>
+<text x="1016" y="295" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Duplicating something written at runtime means the</text>
+<text x="1016" y="316" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">two copies diverge — and after a flip you are looking</text>
+<text x="1016" y="337" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">at the stale one.</text>
+<text x="1016" y="358" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif"></text>
+<text x="1016" y="379" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">For calibration that is an annoyance. For the anti-</text>
+<text x="1016" y="400" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">rollback counter it is a SECURITY HOLE: flip to the</text>
+<text x="1016" y="421" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">bank holding the older counter and the floor drops.</text>
+<rect x="992" y="446" width="544" height="264" rx="16" fill="#FFFFFF" stroke="#03234B" stroke-width="2.4"/>
+<text x="1016" y="486" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">And it costs you application space</text>
+<text x="1016" y="528" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Dual-slot swap</text>
+<text x="1512" y="528" font-size="19" fill="#12A05C" text-anchor="end" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">~456 KB</text>
+<rect x="1016" y="540" width="481.2255319148936" height="24" rx="6" fill="#12A05C"/>
+<text x="1016" y="580" font-size="14" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">one RoT, shared — 96 KB</text>
+<text x="1016" y="606" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Bank swap</text>
+<text x="1512" y="606" font-size="19" fill="#1B7CA8" text-anchor="end" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">~416 KB</text>
+<rect x="1016" y="618" width="439.0127659574468" height="24" rx="6" fill="#1B7CA8"/>
+<text x="1016" y="658" font-size="14" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">two RoTs — 96 KB per bank</text>
+<text x="1016" y="692" font-size="16" fill="#D0323C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">→ ~40 KB LESS for the application, not more.</text>
+<rect x="64" y="726" width="1472" height="58" rx="12" fill="#03234B"/>
+<text x="800" y="762" font-size="19" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Faster install · smaller application · harder to get right. Worth it only if install duration is a hard requirement.</text>
+<text x="64" y="824" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">There is no "outside the swapped region" to escape to either — SWAP_BANK exchanges the whole user flash. The realistic homes for device data are</text>
+<text x="64" y="850" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">external EEPROM or flash, or bank-aware addressing that always reaches the physical bank — if this part exposes such a view. Confirm in the reference manual.</text>
+</svg>

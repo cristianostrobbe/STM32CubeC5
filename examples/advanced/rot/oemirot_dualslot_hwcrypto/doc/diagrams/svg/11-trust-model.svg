@@ -62,6 +62,7 @@
 <text x="1186" y="526" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">readable by anyone who defeats RDP and HDP</text>
 <text x="1186" y="590" font-size="17" fill="#E08A1E" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">stronger option: keep it inside SAES hardware</text>
 <text x="1186" y="616" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">so the usable key never exists in readable memory</text>
+<text x="800" y="668" font-size="17" fill="#1B7CA8" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">When the decryption actually happens — twice, both inside the bootloader — is the next slide.</text>
 <path d="M764,470 C790,470 810,470 830,470" fill="none" stroke="#03234B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arInk)"/>
 <rect x="64" y="686" width="1472" height="156" rx="16" fill="#FFFFFF" stroke="#C6D0DB" stroke-width="2"/>
 <text x="90" y="726" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Two questions people mix up:</text>

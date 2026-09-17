@@ -88,8 +88,8 @@
 <circle cx="956" cy="579" r="18" fill="#12A05C"/>
 <text x="956" y="586.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">7</text>
 <text x="986" y="575" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The RoT decides</text>
-<text x="986" y="603" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">verify the candidate · install it · verify again</text>
-<text x="986" y="627" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">bump the anti-rollback counter · run it</text>
+<text x="986" y="603" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">unwrap the key · verify (decrypting to hash)</text>
+<text x="986" y="627" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">install (decrypting) · verify again · run it</text>
 <rect x="64" y="762" width="1472" height="76" rx="14" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="2"/>
 <text x="90" y="794" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Why this split matters: all the network code lives in the replaceable application.</text>
 <text x="90" y="822" font-size="18" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The immutable part stays small, offline, and has no attack surface facing the outside world.</text>

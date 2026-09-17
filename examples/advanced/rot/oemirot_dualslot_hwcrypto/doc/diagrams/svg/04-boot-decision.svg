@@ -53,7 +53,7 @@
 <text x="486" y="440.0" font-size="16" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">yes</text>
 <rect x="190.0" y="452" width="560" height="66" rx="16" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2.4"/>
 <text x="470" y="484" font-size="21" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Verify the candidate</text>
-<text x="470" y="506" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.95">signature · version ≥ anti-rollback floor · dependencies</text>
+<text x="470" y="506" font-size="15" fill="#5B6B80" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.95">decrypt to hash · signature · version ≥ floor · dependencies</text>
 <line x1="750.0" y1="485" x2="1042" y2="485" stroke="#D0323C" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="7 5" marker-end="url(#arRed)"/>
 <text x="766.0" y="473" font-size="16" fill="#D0323C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">fail</text>
 <rect x="1052" y="447" width="484" height="76" rx="16" fill="#FBE7E8" stroke="#D0323C" stroke-width="2"/>

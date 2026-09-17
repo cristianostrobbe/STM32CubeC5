@@ -65,7 +65,7 @@
 <text x="1040.0" y="461" font-size="15" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">MAGIC @ 0xFFFF0</text>
 <circle cx="96" cy="584" r="21" fill="#03234B"/>
 <text x="96" y="591.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">4</text>
-<text x="132" y="560" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Reset — the RoT verifies, then copies</text>
+<text x="132" y="560" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Reset — the RoT verifies (decrypting to hash), then copies (decrypting)</text>
 <rect x="132" y="574" width="493.0" height="74" rx="10" fill="url(#hatch)" stroke="#E08A1E" stroke-width="2.4"/>
 <text x="378.5" y="605.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY SLOT</text>
 <text x="378.5" y="631.0" font-size="16" fill="#E08A1E" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">COPY IN PROGRESS</text>

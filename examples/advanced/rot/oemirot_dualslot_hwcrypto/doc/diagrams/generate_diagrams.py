@@ -380,8 +380,8 @@ def d03_pipeline():
                  ["write the magic trailer at the end of the slot"], GREEN, WHITE)
     o += stepbox(922, 445, 590, 84, 6, "Reset", [], GREEN, WHITE)
     o += stepbox(922, 545, 590, 136, 7, "The RoT decides",
-                 ["verify the candidate · install it · verify again",
-                  "bump the anti-rollback counter · run it"], GREEN, GREEN_LT)
+                 ["unwrap the key · verify (decrypting to hash)",
+                  "install (decrypting) · verify again · run it"], GREEN, GREEN_LT)
 
     o += rect(64, 762, 1472, 76, fill=GRAY_LT, stroke=GRAY_BD, rx=14, sw=2)
     o += text(90, 794, "Why this split matters: all the network code lives in the replaceable application.",
@@ -433,7 +433,7 @@ def d04_boot_decision():
               fill=CYAN_LT, stroke=CYAN_DK)
     o += down(416, 452, "yes")
     o += node(452, "Verify the candidate",
-              "signature · version ≥ anti-rollback floor · dependencies",
+              "decrypt to hash · signature · version ≥ floor · dependencies",
               fill=CYAN_LT, stroke=CYAN_DK)
     o += reject(485, "fail", "Candidate refused",
                 "forged, corrupted or too old — the old image keeps running")
@@ -467,7 +467,7 @@ def d05_overwrite():
         (1, "The app erases the download area", "run", "empty", None, None, None),
         (2, "YModem writes the new image into it", "run", "staged", None, None, None),
         (3, "The app writes the magic trailer", "run", "staged", None, None, "MAGIC @ 0xFFFF0"),
-        (4, "Reset — the RoT verifies, then copies", "copy", "staged", None, None, None),
+        (4, "Reset — the RoT verifies (decrypting to hash), then copies (decrypting)", "copy", "staged", None, None, None),
         (5, "Done — the old firmware no longer exists", "run", "gone", None, None, None),
     ]
     y = 190
@@ -509,7 +509,7 @@ def d06_swap():
     y = 182
     for n, cap, s1, s2, tag in [
             (1, "Download and request, exactly as before", "run", "staged", "MAGIC"),
-            (2, "Reset — the RoT verifies, then EXCHANGES the two slots", "new", "old", None)]:
+            (2, "Reset — the RoT verifies, then EXCHANGES the slots: the incoming image is decrypted, the outgoing one RE-ENCRYPTED", "new", "old", None)]:
         o += step_dot(96, y + 40, n, color=INK)
         o += text(132, y + 16, cap, size=20, weight="700", anchor="start")
         o += slot_pair(132, y + 30, 1360, 74, s1, s2, tag2=tag)
@@ -788,6 +788,8 @@ def d11_trust_model():
     o += text(1186, 526, "readable by anyone who defeats RDP and HDP", size=16, fill=INK_SOFT)
     o += text(1186, 590, "stronger option: keep it inside SAES hardware", size=17, fill=AMBER, weight="700")
     o += text(1186, 616, "so the usable key never exists in readable memory", size=15, fill=INK_SOFT)
+    o += text(800, 668, "When the decryption actually happens — twice, both inside the bootloader — is the next slide.",
+              size=17, fill=CYAN_DK, weight="700")
 
     o += path("M764,470 C790,470 810,470 830,470", stroke=INK, sw=3, marker="arInk")
 
@@ -896,7 +898,7 @@ def d13_faq_images():
              "The image arrives encrypted — should the app decrypt it before writing to flash?",
              "No. Write it byte for byte, still encrypted. The application never decrypts anything.",
              ["It could not anyway: the decryption key is at 0x12000, inside HDP, which closes before the app runs",
-              "The RoT unwraps the AES key, decrypts on the fly while hashing (the signature covers the PLAINTEXT), then decrypts while installing",
+              "Decryption happens TWICE, both inside the RoT: once in RAM to reconstruct the hash the signature covers, once while copying into the primary slot",
               "Invariant: primary slot = clear, secondary slot = encrypted — visible in the two image recipes (-c vs -E)",
               "In swap mode the RoT re-encrypts the outgoing image on its way to the secondary slot"],
              GREEN, WHITE)
@@ -988,7 +990,7 @@ def d15_faq_swap():
              "No to both. One bootloader, at 0x00000, never moved and never duplicated.",
              ["Two different mechanisms share the word \"swap\" — this is the confusing part",
               "DUAL-SLOT SWAP: software exchanges the two SLOT CONTENTS. The RoT is not part of the move",
-              "BANK SWAP (mirror): hardware flips the WHOLE address map, including 0x08000000 where the RoT lives — only THAT would need a second copy (not implemented)",
+              "BANK SWAP (mirror): hardware flips the WHOLE address map — only THAT needs a second RoT, and its runtime-written state (counters, calibration) has no coherent home. It also leaves ~40 KB LESS for the app",
               "The running image is always in the primary slot, so it keeps today's link address: no relinking, no position-independent code"],
              CYAN_DK, WHITE)
 
@@ -1204,8 +1206,140 @@ def d05b_why_request():
     return write("05b-why-install-request", o)
 
 
+# ============================================================== diagram 11b ===
+def d11b_decryption_timeline():
+    o = title_block("When exactly is the image decrypted?",
+                    "Twice — both times inside the bootloader, both during one install. Never afterwards.")
+
+    stages = [
+        ("1", "FACTORY", VIOLET, [
+            "sign the PLAINTEXT first,", "then encrypt the payload",
+            "the AES key is wrapped", "with ECIES into a TLV"], "no decryption", False),
+        ("2", "DOWNLOAD", CYAN_DK, [
+            "the app writes bytes", "it cannot read",
+            "secondary slot", "= ciphertext"], "no decryption", False),
+        ("3", "VERIFY CANDIDATE", AMBER, [
+            "decrypt block by block", "IN RAM while hashing —",
+            "the signature covers the", "plaintext. Nothing written."], "DECRYPT — pass 1", True),
+        ("4", "INSTALL", AMBER, [
+            "decrypt while copying", "into the primary slot.",
+            "This one persists:", "plaintext lands in flash."], "DECRYPT — pass 2", True),
+        ("5", "EVERY BOOT AFTER", GREEN, [
+            "primary slot is plaintext:", "hash it directly, or skip",
+            "via the hash reference.", "Runtime: crypto clocks off."], "no decryption", False),
+    ]
+    x, cw = 64, 280
+    for n, name, col, lines, badge, hot in stages:
+        o += rect(x, 178, cw, 326, fill=WHITE, stroke=col, rx=14, sw=2.4)
+        o += rect(x, 178, cw, 52, fill=col, rx=14)
+        o += rect(x, 208, cw, 22, fill=col)
+        o += text(x + cw / 2, 212, name, size=16, fill=WHITE, weight="700")
+        o += step_dot(x + 28, 204, n, color=WHITE, r=15, tcol=col)
+        for i, ln in enumerate(lines):
+            o += text(x + cw / 2, 268 + i * 26, ln, size=15, fill=INK_SOFT)
+        o += rect(x + 16, 420, cw - 32, 44, fill=AMBER if hot else GRAY_LT,
+                  stroke=None if hot else GRAY_BD, rx=22, sw=1.6)
+        o += text(x + cw / 2, 448, badge, size=15,
+                  fill=WHITE if hot else INK_SOFT, weight="700")
+        if x + cw < 1450:
+            o += text(x + cw + 9, 350, "›", size=30, fill=INK_SOFT, weight="700")
+        x += cw + 18
+
+    # key unwrap annotation
+    o += rect(500, 518, 600, 44, fill=VIOLET_LT, stroke=VIOLET, rx=22, sw=2)
+    o += text(800, 546, "before pass 1: unwrap the AES key with the ECIES private key",
+              size=16, fill=VIOLET, weight="700")
+
+    o += card(64, 586, 720, 152, fill=WHITE, stroke=INK, sw=2.4)
+    o += text(88, 624, "Why twice, and not once?", size=21, weight="700", anchor="start")
+    for i, ln in enumerate([
+            "Verification must finish BEFORE installation starts.",
+            "Pass 1 is throwaway — it only reconstructs the hash.",
+            "Install-then-verify would let a forged image overwrite",
+            "your working firmware before you discovered it was bad."]):
+        o += text(88, 656 + i * 24, ln, size=16, fill=INK_SOFT, anchor="start")
+
+    o += card(816, 586, 720, 152, fill=GREEN_LT, stroke=GREEN, sw=2.4)
+    o += text(840, 624, "Where plaintext exists", size=21, weight="700", anchor="start")
+    rows = [("secondary slot", "never — ciphertext from download until install"),
+            ("primary slot", "always, once installed — this is what the CPU runs"),
+            ("RAM", "transiently, block by block, during passes 1 and 2")]
+    for i, (a, b) in enumerate(rows):
+        o += text(840, 654 + i * 24, a, size=16, weight="700", anchor="start", fill=GREEN)
+        o += text(996, 654 + i * 24, b, size=16, fill=INK_SOFT, anchor="start")
+
+    o += rect(64, 756, 1472, 52, fill=CYAN_LT, stroke=CYAN_DK, rx=12, sw=2)
+    o += text(800, 790, "SWAP mode adds a third pass: the outgoing image is RE-ENCRYPTED on its way into the secondary slot.",
+              size=18, fill=INK, weight="600")
+
+    o += text(64, 848, "Encryption protects the image in transit and while it is staged. The installed image sits in flash as plaintext — what protects it there is RDP and WRP.",
+              size=17, fill=INK_SOFT, anchor="start")
+    return write("11b-decryption-timeline", o)
+
+
+# ============================================================== diagram 07b ===
+def d07b_bank_swap_cost():
+    o = title_block("Bank swap — what you would actually have to mirror",
+                    "The flip moves every address, so anything at a fixed address needs a copy in both banks")
+
+    items = [
+        ("Bootloader (RoT)", "YES — two identical copies", "the flip moves 0x08000000, so whichever bank lands low needs a working RoT at offset 0", RED),
+        ("Application", "NO", "the two banks hold DIFFERENT images, new and old — that is the entire point", GREEN),
+        ("Keys (pubkey hash, enc key)", "yes, harmlessly", "they never change after provisioning, so the two copies stay identical", AMBER),
+        ("NV counters (anti-rollback)", "yes — and that is a problem", "written at runtime, so the copies drift apart", RED),
+        ("Hash references", "yes, and they go stale", "the inactive bank's cache does not match the image now running", RED),
+        ("Calibration / config", "yes, and worse", "the APPLICATION writes it, so a write after a flip lands in one bank only", RED),
+        ("Install-request flag", "mechanism changes entirely", "no \"secondary slot\" to put a trailer at the end of", AMBER),
+    ]
+    o += text(64, 182, "What needs a copy in both banks", size=20, weight="700", anchor="start")
+    y = 200
+    for name, verdict, why, col in items:
+        o += rect(64, y, 900, 56, fill=GRAY_LT if col != RED else RED_LT, rx=10)
+        o += rect(64, y, 7, 56, fill=col, rx=4)
+        o += text(88, y + 24, name, size=17, weight="700", anchor="start")
+        o += text(88, y + 46, why, size=14, fill=INK_SOFT, anchor="start")
+        o += text(950, y + 24, verdict, size=15, fill=col, weight="700", anchor="end")
+        y += 62
+
+    o += card(992, 200, 544, 226, fill=RED_LT, stroke=RED, sw=2.4)
+    o += text(1016, 240, "The mutable-state problem", size=21, weight="700", anchor="start", fill=RED)
+    for i, ln in enumerate([
+            "Duplicating something that never changes is free.",
+            "Duplicating something written at runtime means the",
+            "two copies diverge — and after a flip you are looking",
+            "at the stale one.",
+            "",
+            "For calibration that is an annoyance. For the anti-",
+            "rollback counter it is a SECURITY HOLE: flip to the",
+            "bank holding the older counter and the floor drops."]):
+        o += text(1016, 274 + i * 21, ln, size=15, fill=INK_SOFT, anchor="start")
+
+    o += card(992, 446, 544, 264, fill=WHITE, stroke=INK, sw=2.4)
+    o += text(1016, 486, "And it costs you application space", size=21, weight="700", anchor="start")
+    bars = [("Dual-slot swap", 456, GREEN, "one RoT, shared — 96 KB"),
+            ("Bank swap", 416, CYAN_DK, "two RoTs — 96 KB per bank")]
+    for i, (name, kb, col, note) in enumerate(bars):
+        yy = 512 + i * 78
+        o += text(1016, yy + 16, name, size=17, weight="700", anchor="start")
+        o += text(1512, yy + 16, f"~{kb} KB", size=19, fill=col, weight="700", anchor="end")
+        o += rect(1016, yy + 28, 496 * kb / 470.0, 24, fill=col, rx=6)
+        o += text(1016, yy + 68, note, size=14, fill=INK_SOFT, anchor="start")
+    o += text(1016, 692, "→ ~40 KB LESS for the application, not more.",
+              size=16, fill=RED, weight="700", anchor="start")
+
+    o += rect(64, 726, 1472, 58, fill=INK, rx=12)
+    o += text(800, 762, "Faster install · smaller application · harder to get right. Worth it only if install duration is a hard requirement.",
+              size=19, fill=WHITE, weight="700")
+    o += text(64, 824, "There is no \"outside the swapped region\" to escape to either — SWAP_BANK exchanges the whole user flash. The realistic homes for device data are",
+              size=16, fill=INK_SOFT, anchor="start")
+    o += text(64, 850, "external EEPROM or flash, or bank-aware addressing that always reaches the physical bank — if this part exposes such a view. Confirm in the reference manual.",
+              size=16, fill=INK_SOFT, anchor="start")
+    return write("07b-bank-swap-cost", o)
+
+
 # ------------------------------------------------------------------- main ---
-DIAGRAMS = [d00_glossary, d05b_why_request, d01_two_stage_boot, d02_flash_map, d03_pipeline, d04_boot_decision,
+DIAGRAMS = [d00_glossary, d05b_why_request, d11b_decryption_timeline,
+            d07b_bank_swap_cost, d01_two_stage_boot, d02_flash_map, d03_pipeline, d04_boot_decision,
             d05_overwrite, d06_swap, d07_bank_swap, d08_variants, d09_comparison,
             d10_failure_modes, d11_trust_model, d12_decision_tree,
             d13_faq_images, d14_faq_data, d15_faq_swap, d16_open_questions]

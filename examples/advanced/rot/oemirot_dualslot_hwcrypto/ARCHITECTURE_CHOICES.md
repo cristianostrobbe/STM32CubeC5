@@ -358,6 +358,8 @@ build or the boot will not work; "incoherent" means it works but contradicts its
 | device-written data inside a slot → **destroyed on first update** | overwrite erases it; swap relocates it and reverts bring it back |
 | data region + swap → **costs double** | slots must stay equal, so N bytes reserved removes N from each slot |
 | bank swap + a fixed data region → **address moves** | `SWAP_BANK` flips the whole map, including where that region appears |
+| bank swap + runtime-written state → **copies diverge** | counters and calibration exist per bank; after a flip you read the stale one. For the anti-rollback counter that is a security hole |
+| bank swap → **less app space, not more** | the RoT and its data exist twice (192 KB vs 96 KB), leaving ~416 KB per bank against ~456 KB per slot |
 
 ---
 

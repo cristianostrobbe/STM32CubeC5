@@ -297,6 +297,30 @@ AES key with the ECIES private key, decrypts on the fly while hashing (the signa
 computed over the *plaintext*, so decryption happens before the image is trusted), and
 decrypts again while installing.
 
+#### At which stage the decryption happens
+
+Twice, both inside the bootloader, both during a single install — and never again:
+
+| Stage | In flash | Decryption |
+|---|---|---|
+| Factory | — | none. The image is **signed first, then encrypted**, so the signature covers the plaintext |
+| Download | secondary = ciphertext | none — the app writes bytes it cannot read |
+| Key unwrap | — | the ECIES private key unwraps the image's AES key (one asymmetric operation) |
+| **Verify candidate** | secondary = ciphertext | **pass 1** — decrypts block by block *in RAM* while hashing. Nothing is written |
+| **Install** | primary ← secondary | **pass 2** — decrypts while copying. This one persists |
+| Re-verify primary | primary = plaintext | none — hashed directly |
+| Every later boot, and runtime | primary = plaintext | none. The crypto clocks are off while the app runs |
+
+Why two passes and not one: verification has to finish *before* installation starts. Pass
+1 exists only to reconstruct the hash the signature covers; decrypting straight into the
+primary slot would let a forged image overwrite the working firmware before it was found
+to be bad.
+
+Plaintext therefore exists in the primary slot (always, once installed), in RAM
+(transiently, during the two passes), and nowhere else — never in the secondary slot,
+never on the wire. Encryption protects the image in transit and while staged; what
+protects the installed image is RDP and WRP.
+
 Swap adds one twist over overwrite: to preserve that invariant, MCUboot **re-encrypts the
 outgoing image** as it moves into the secondary slot, and stores the AES key in the image
 trailer so the swap can resume after a reset and so a revert still works. Two consequences:
@@ -365,6 +389,36 @@ different address after the flip. Flipping it moves the bootloader too. A workin
 to answer: *where does the immutable RoT live such that it is still at the boot address
 after the swap?* (An identical copy in both banks is the usual answer, costing 72 KB
 twice, and both copies must be WRP-protected.)
+
+### What you would have to mirror
+
+The flip moves every address, so anything at a fixed address needs a copy in both banks:
+
+| | Mirrored? | Why |
+|---|---|---|
+| Bootloader (RoT) | **yes — two identical copies** | whichever bank lands low needs a working RoT at offset 0 |
+| Application | **no** | the banks hold *different* images, new and old — that is the point |
+| Keys (pubkey hash, decryption key) | yes, harmlessly | they never change, so the copies stay identical |
+| NV counters (anti-rollback) | yes — **and that is a problem** | written at runtime, so the copies drift apart |
+| Hash references | yes, and they go stale | the inactive bank's cache does not match the running image |
+| Calibration / configuration | yes, and worse | the *application* writes it, so a write after a flip lands in one bank only |
+| Install-request flag | mechanism changes entirely | there is no "secondary slot" to put a trailer at the end of |
+
+Duplicating something immutable is free. Duplicating something written at runtime means
+the copies diverge — an annoyance for calibration, and a **security hole** for the
+anti-rollback counter: flip to the bank holding the older counter and the floor drops.
+There is no "outside the swapped region" to escape to, since `SWAP_BANK` exchanges the
+whole user flash; the realistic homes for device data are external EEPROM or flash.
+
+And the doubled RoT comes out of the application budget:
+
+| | RoT overhead | App budget |
+|---|---|---|
+| Dual-slot swap | 96 KB, shared | **~456 KB** |
+| Bank swap | 192 KB (96 per bank) | **416 KB** |
+
+So bank swap buys install speed at the price of ~40 KB *less* application space, no clean
+home for device data, and a counter-coherency problem to solve.
 
 **Status: not implemented anywhere in this repository.** `SWAP_BANK` appears only as a
 static option byte set to `0` in `provisioning/config/example.json`. Everything above is
