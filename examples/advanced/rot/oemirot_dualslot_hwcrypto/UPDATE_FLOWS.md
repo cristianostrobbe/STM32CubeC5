@@ -160,6 +160,27 @@ STEP 7  done — old firmware no longer exists anywhere
 STEP 8  RoT re-verifies primary, stores hash ref, bumps NV counter, jumps
 ```
 
+### Why step 3 exists at all
+
+Downloading the image is not enough, and the extra write is not redundant:
+
+- **The two stages cannot talk.** The RoT runs, hands over, and closes HDP behind it —
+  no call back, no API, no shared RAM. The only channel from application to bootloader is
+  *leave something in flash, then reset*. "Install this" has to be a mark in flash.
+- **"Downloaded" is not "wanted".** Fetching the image and committing to install it are
+  two decisions, and the example keeps them apart: *Download app image* (menu 2), then
+  *Request installation* (menu 3), then *Reset* (menu 1). Download overnight, install in a
+  maintenance window.
+- **It proves the transfer finished.** Erased flash reads `0xFF`, and an aborted download
+  leaves a slot that looks like a valid beginning. The magic sits *after* the image data,
+  so it can only be complete if everything before it was written.
+- **It is deliberately not a trust signal.** The application writes it, so it can only say
+  "look here" — never "trust this". Verification happens afterwards and rejects anything
+  that fails.
+
+Without the flag the RoT would have to guess: re-verify the download slot on every boot,
+or install whatever happens to be lying there.
+
 ### The failure this architecture cannot handle
 
 ```

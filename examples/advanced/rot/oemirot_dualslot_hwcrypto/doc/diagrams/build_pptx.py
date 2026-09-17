@@ -22,6 +22,9 @@ CYAN = RGBColor(0x3C, 0xB4, 0xE6)
 WHITE = RGBColor(0xFF, 0xFF, 0xFF)
 
 SLIDES = [
+    ("00-glossary",
+     "Vocabulary slide. Do not read it out - put it up, say it stays available, and come "
+     "back to it whenever someone asks what a term means."),
     ("01-two-stage-boot",
      "The frame for everything else: an immutable first stage that checks the second one, "
      "then hides itself. Nothing the application does can reach back into it."),
@@ -40,6 +43,10 @@ SLIDES = [
     ("05-overwrite-sequence",
      "What the board does today. Walk the five states, then land on the red box: a signed "
      "image that crashes takes the update path down with it."),
+    ("05b-why-install-request",
+     "Answers the question the previous slide always provokes: why a separate 'request "
+     "install' step at all. The short version: the two stages cannot talk, so the only "
+     "channel is a mark in flash - and that mark also proves the download completed."),
     ("06-swap-sequence",
      "The same flow plus one confirmation flag. Worth stressing: the confirm code already "
      "exists in our application, compiled out by OVERWRITE_ONLY."),

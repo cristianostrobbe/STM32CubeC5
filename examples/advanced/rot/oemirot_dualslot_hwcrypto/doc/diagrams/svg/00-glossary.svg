@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The vocabulary, in one slide</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Every term this deck uses. Worth leaving on screen during questions.</text>
+<rect x="64" y="178" width="472" height="656" rx="16" fill="#FFFFFF" stroke="#03234B" stroke-width="2.4"/>
+<rect x="64" y="178" width="472" height="52" rx="16" fill="#03234B"/>
+<rect x="64" y="208" width="472" height="22" rx="12" fill="#03234B"/>
+<text x="300.0" y="212" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">THE PIECES</text>
+<text x="86" y="264" font-size="18" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">RoT</text>
+<text x="86" y="288" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Root of Trust — the small immutable bootloader</text>
+<text x="86" y="309" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">that runs first and checks everything else</text>
+<text x="86" y="346" font-size="18" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Image</text>
+<text x="86" y="370" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">firmware + a header + metadata. Not a bare .bin</text>
+<text x="86" y="407" font-size="18" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Slot</text>
+<text x="86" y="431" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">a flash region sized to hold exactly one image</text>
+<text x="86" y="468" font-size="18" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">TLV</text>
+<text x="86" y="492" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Tag-Length-Value — the variable-length records</text>
+<text x="86" y="513" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">appended after the firmware: hash, signature,</text>
+<text x="86" y="534" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">version, dependencies</text>
+<text x="86" y="571" font-size="18" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Magic trailer</text>
+<text x="86" y="595" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">16 bytes at the end of the download slot meaning</text>
+<text x="86" y="616" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">"a candidate is ready"</text>
+<text x="86" y="653" font-size="18" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Confirm flag</text>
+<text x="86" y="677" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the new firmware's "I booted, keep me" mark (swap</text>
+<text x="86" y="698" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">mode only)</text>
+<rect x="564" y="178" width="472" height="656" rx="16" fill="#FFFFFF" stroke="#6B5BD2" stroke-width="2.4"/>
+<rect x="564" y="178" width="472" height="52" rx="16" fill="#6B5BD2"/>
+<rect x="564" y="208" width="472" height="22" rx="12" fill="#6B5BD2"/>
+<text x="800.0" y="212" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">THE PROTECTIONS</text>
+<text x="586" y="264" font-size="18" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">OB</text>
+<text x="586" y="288" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Option Bytes — chip configuration stored outside</text>
+<text x="586" y="309" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the firmware: boot address, protections, lock bits</text>
+<text x="586" y="346" font-size="18" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">WRP</text>
+<text x="586" y="370" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Write Protection — flash pages that cannot be</text>
+<text x="586" y="391" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">erased or written. Makes the RoT immutable</text>
+<text x="586" y="428" font-size="18" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">HDP</text>
+<text x="586" y="452" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Hide Protection — a region that disappears from</text>
+<text x="586" y="473" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the memory map once the RoT hands over</text>
+<text x="586" y="510" font-size="18" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">RDP</text>
+<text x="586" y="534" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Readout Protection — how much a debug probe may</text>
+<text x="586" y="555" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">see. 0 = everything, 2 = nothing, permanently</text>
+<text x="586" y="592" font-size="18" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">MPU</text>
+<text x="586" y="616" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Memory Protection Unit — the CPU's runtime rules</text>
+<text x="586" y="637" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">on what may be read, written or executed</text>
+<text x="586" y="674" font-size="18" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">NV counter</text>
+<text x="586" y="698" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">a non-volatile counter that only ever increases —</text>
+<text x="586" y="719" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the anti-rollback floor</text>
+<rect x="1064" y="178" width="472" height="656" rx="16" fill="#FFFFFF" stroke="#12A05C" stroke-width="2.4"/>
+<rect x="1064" y="178" width="472" height="52" rx="16" fill="#12A05C"/>
+<rect x="1064" y="208" width="472" height="22" rx="12" fill="#12A05C"/>
+<text x="1300.0" y="212" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">THE CRYPTOGRAPHY</text>
+<text x="1086" y="264" font-size="18" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SHA-256</text>
+<text x="1086" y="288" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the hash — a short fingerprint of the image</text>
+<text x="1086" y="325" font-size="18" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">ECDSA P-256</text>
+<text x="1086" y="349" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the signature scheme — proves the image came from</text>
+<text x="1086" y="370" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">whoever holds the private key</text>
+<text x="1086" y="407" font-size="18" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">AES-128-CTR</text>
+<text x="1086" y="431" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the cipher that scrambles the payload</text>
+<text x="1086" y="468" font-size="18" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">ECIES</text>
+<text x="1086" y="492" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">how the AES key is wrapped so that only this</text>
+<text x="1086" y="513" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">device can unwrap it</text>
+<text x="1086" y="550" font-size="18" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PKA · SAES · HASH</text>
+<text x="1086" y="574" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the hardware engines that run the three above</text>
+<text x="1086" y="611" font-size="18" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">XIP</text>
+<text x="1086" y="635" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">eXecute In Place — the CPU runs code straight from</text>
+<text x="1086" y="656" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">flash, with no copy to RAM</text>
+<text x="1086" y="693" font-size="18" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">YModem</text>
+<text x="1086" y="717" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the serial file-transfer protocol used here to</text>
+<text x="1086" y="738" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">move an image onto the device</text>
+<text x="1086" y="775" font-size="18" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">TPC</text>
+<text x="1086" y="799" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">STM32TrustedPackageCreator — the tool that signs</text>
+<text x="1086" y="820" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">and encrypts the image</text>
+</svg>

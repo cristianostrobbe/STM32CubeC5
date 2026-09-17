@@ -41,6 +41,14 @@ The vocabulary you need:
 | **HDP** (Hide Protection) | Makes a flash region disappear — unreadable even by code — once the RoT hands over. Keeps the app from reading the RoT's keys. |
 | **Option bytes (OB)** | Non-volatile configuration of the chip itself (boot address, RDP, WRP, HDP…), separate from the firmware. |
 | **Provisioning** | The factory step that programs the RoT, the keys, and the option bytes into a blank chip. |
+| **TLV** | Tag-Length-Value — the variable-length metadata records appended after the firmware: hash, signature, version, dependencies. |
+| **Magic trailer** | 16 bytes at the end of the download slot meaning "a candidate is ready". Written by the application, read by the RoT after a reset. |
+| **Confirm flag** | The new firmware's "I booted, keep me" mark (swap mode only). Without it the next boot reverts. |
+| **MPU** | Memory Protection Unit — the CPU's runtime rules on what may be read, written or executed. |
+| **NV counter** | A non-volatile counter that only ever increases; it holds the anti-rollback floor. |
+| **ECIES** | How the AES key is wrapped inside the image so only this device can unwrap it. |
+| **PKA · SAES · HASH** | The hardware engines that run ECDSA, AES and SHA-256 on this part. |
+| **XIP** | eXecute In Place — the CPU runs code straight from flash, with no copy to RAM. |
 
 Everything below is a choice about how to arrange those pieces.
 

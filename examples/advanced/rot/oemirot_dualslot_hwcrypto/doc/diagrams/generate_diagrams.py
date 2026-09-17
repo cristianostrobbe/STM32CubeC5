@@ -1063,8 +1063,139 @@ def d16_open_questions():
     return write("16-open-questions", o)
 
 
+def wrap(t, maxchars):
+    """Greedy word wrap to a character budget."""
+    words, line, lines = t.split(), "", []
+    for w in words:
+        if line and len(line + " " + w) > maxchars:
+            lines.append(line)
+            line = w
+        else:
+            line = (line + " " + w).strip()
+    if line:
+        lines.append(line)
+    return lines
+
+
+# =============================================================== diagram 00 ===
+def d00_glossary():
+    o = title_block("The vocabulary, in one slide",
+                    "Every term this deck uses. Worth leaving on screen during questions.")
+    cols = [
+        ("THE PIECES", INK, [
+            ("RoT", "Root of Trust — the small immutable bootloader that runs first and checks everything else"),
+            ("Image", "firmware + a header + metadata. Not a bare .bin"),
+            ("Slot", "a flash region sized to hold exactly one image"),
+            ("TLV", "Tag-Length-Value — the variable-length records appended after the firmware: hash, signature, version, dependencies"),
+            ("Magic trailer", "16 bytes at the end of the download slot meaning \"a candidate is ready\""),
+            ("Confirm flag", "the new firmware's \"I booted, keep me\" mark (swap mode only)"),
+        ]),
+        ("THE PROTECTIONS", VIOLET, [
+            ("OB", "Option Bytes — chip configuration stored outside the firmware: boot address, protections, lock bits"),
+            ("WRP", "Write Protection — flash pages that cannot be erased or written. Makes the RoT immutable"),
+            ("HDP", "Hide Protection — a region that disappears from the memory map once the RoT hands over"),
+            ("RDP", "Readout Protection — how much a debug probe may see. 0 = everything, 2 = nothing, permanently"),
+            ("MPU", "Memory Protection Unit — the CPU's runtime rules on what may be read, written or executed"),
+            ("NV counter", "a non-volatile counter that only ever increases — the anti-rollback floor"),
+        ]),
+        ("THE CRYPTOGRAPHY", GREEN, [
+            ("SHA-256", "the hash — a short fingerprint of the image"),
+            ("ECDSA P-256", "the signature scheme — proves the image came from whoever holds the private key"),
+            ("AES-128-CTR", "the cipher that scrambles the payload"),
+            ("ECIES", "how the AES key is wrapped so that only this device can unwrap it"),
+            ("PKA · SAES · HASH", "the hardware engines that run the three above"),
+            ("XIP", "eXecute In Place — the CPU runs code straight from flash, with no copy to RAM"),
+            ("YModem", "the serial file-transfer protocol used here to move an image onto the device"),
+            ("TPC", "STM32TrustedPackageCreator — the tool that signs and encrypts the image"),
+        ]),
+    ]
+    x = 64
+    for name, col, entries in cols:
+        cw = 472
+        o += rect(x, 178, cw, 656, fill=WHITE, stroke=col, rx=16, sw=2.4)
+        o += rect(x, 178, cw, 52, fill=col, rx=16)
+        o += rect(x, 208, cw, 22, fill=col)
+        o += text(x + cw / 2, 212, name, size=18, fill=WHITE, weight="700")
+        yy = 264
+        for term, definition in entries:
+            o += text(x + 22, yy, term, size=18, fill=col, weight="700", anchor="start")
+            lines = wrap(definition, 50)
+            for i, ln in enumerate(lines):
+                o += text(x + 22, yy + 24 + i * 21, ln, size=15, fill=INK_SOFT, anchor="start")
+            yy += 24 + len(lines) * 21 + 16
+        x += cw + 28
+    return write("00-glossary", o)
+
+
+# ============================================================== diagram 05b ===
+def d05b_why_request():
+    o = title_block("Why the application has to ask, explicitly",
+                    "Step 3 of the update sequence — the one that looks redundant")
+
+    o += rect(64, 168, 700, 176, fill=INK, rx=16)
+    o += text(96, 212, "The two stages cannot talk to each other.", size=23,
+              fill=WHITE, weight="700", anchor="start")
+    for i, ln in enumerate(["The RoT runs, hands over, and closes HDP behind it.",
+                            "No call back. No API. No shared RAM.",
+                            "The only channel is: leave something in flash, then reset."]):
+        o += text(96, 250 + i * 30, ln, size=18, fill=CYAN, anchor="start")
+
+    o += rect(796, 168, 740, 176, fill=VIOLET_LT, stroke=VIOLET, rx=16, sw=2.4)
+    o += text(828, 212, "So \"install this\" has to be a mark in flash.", size=23,
+              fill=VIOLET, weight="700", anchor="start")
+    for i, ln in enumerate(["16 bytes, at the end of the download slot.",
+                            "The application writes it; the bootloader reads it",
+                            "after the next reset. That is the whole protocol."]):
+        o += text(828, 250 + i * 30, ln, size=18, fill=INK_SOFT, anchor="start")
+
+    reasons = [
+        ("1", "\"Downloaded\" is not \"wanted\"", CYAN_DK, CYAN_LT,
+         ["Download at 2 a.m., install during a", "maintenance window. Two decisions,",
+          "two menu items: Download (2), then", "Request installation (3)."]),
+        ("2", "It proves the download finished", GREEN, GREEN_LT,
+         ["Erased flash is 0xFF, and an aborted", "transfer leaves a slot that looks like a",
+          "valid start. The magic sits AFTER the", "image — so it exists only if all of it does."]),
+        ("3", "Deliberately not a trust signal", AMBER, AMBER_LT,
+         ["The app writes it, so it can only say", "\"look here\" — never \"trust this\".",
+          "Verification happens afterwards, and", "rejects anything that fails."]),
+    ]
+    x = 64
+    for n, t, col, colbg, lines in reasons:
+        cw = 472
+        o += rect(x, 386, cw, 252, fill=colbg, stroke=col, rx=16, sw=2.4)
+        o += step_dot(x + 44, 428, n, color=col, r=20)
+        o += text(x + 76, 436, t, size=20, weight="700", anchor="start")
+        for i, ln in enumerate(lines):
+            o += text(x + 32, 486 + i * 27, ln, size=16, fill=INK_SOFT, anchor="start")
+        x += cw + 28
+
+    # timeline
+    y = 690
+    o += text(64, y - 4, "the whole handshake", size=17, fill=INK_SOFT,
+              weight="700", anchor="start")
+    segs = [("download the image", 620, CYAN_DK, "seconds to minutes"),
+            ("write 16 bytes", 300, VIOLET, "instant"),
+            ("reset", 200, INK, ""),
+            ("RoT verifies and installs", 352, GREEN, "")]
+    x = 64
+    for name, w, col, sub in segs:
+        o += rect(x, y + 14, w - 10, 56, fill=col, rx=8)
+        o += text(x + (w - 10) / 2, y + (40 if sub else 48), name, size=17,
+                  fill=WHITE, weight="700")
+        if sub:
+            o += text(x + (w - 10) / 2, y + 60, sub, size=13, fill=WHITE, opacity=0.85)
+        if x + w < 1530:
+            o += text(x + w - 5, y + 48, "›", size=26, fill=INK_SOFT, weight="700")
+        x += w
+
+    o += text(64, y + 116,
+              "Without the flag the RoT would have to guess — re-verifying the download slot on every boot, or installing whatever happens to be lying there.",
+              size=18, fill=RED, weight="600", anchor="start")
+    return write("05b-why-install-request", o)
+
+
 # ------------------------------------------------------------------- main ---
-DIAGRAMS = [d01_two_stage_boot, d02_flash_map, d03_pipeline, d04_boot_decision,
+DIAGRAMS = [d00_glossary, d05b_why_request, d01_two_stage_boot, d02_flash_map, d03_pipeline, d04_boot_decision,
             d05_overwrite, d06_swap, d07_bank_swap, d08_variants, d09_comparison,
             d10_failure_modes, d11_trust_model, d12_decision_tree,
             d13_faq_images, d14_faq_data, d15_faq_swap, d16_open_questions]

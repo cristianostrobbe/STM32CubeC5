@@ -8,19 +8,21 @@ Slide-ready versions of the schemes in [`../../DOC.md`](../../DOC.md),
 |---|---|
 | `svg/` | vector, 1600 × 900, **transparent background** — the format to use in PowerPoint |
 | `png/` | 3200 × 1800 on white — fallback for templates or tools that dislike SVG |
-| `oemirot_architecture.pptx` | 16:9 deck, one diagram per slide, with speaker notes |
+| `oemirot_architecture.pptx` | 16:9 deck, one diagram per slide, with speaker notes (deck order differs from file numbering — see `build_pptx.py`) |
 | `generate_diagrams.py` | regenerates everything in `svg/` and `png/` |
 | `build_pptx.py` | rebuilds the deck from `png/` |
 
-## The sixteen diagrams
+## The eighteen diagrams
 
 | # | File | Shows |
 |---|---|---|
+| 00 | `00-glossary` | every term the deck uses — RoT, TLV, HDP, WRP, RDP, MPU, NV counter, ECIES, XIP… |
 | 01 | `01-two-stage-boot` | the two stages and the one-way jump |
 | 02 | `02-flash-map` | the real 1 MB layout, with WRP/HDP spans |
 | 03 | `03-update-pipeline` | factory → transport → device, and who does what |
 | 04 | `04-boot-decision` | what the RoT does on every reset, with the rejection paths |
 | 05 | `05-overwrite-sequence` | dual-slot overwrite, step by step (what runs today) |
+| 05b | `05b-why-install-request` | why the app must explicitly ask for installation, not just download |
 | 06 | `06-swap-sequence` | dual-slot swap, with the confirm / auto-revert branch |
 | 07 | `07-bank-swap` | the `SWAP_BANK` mirror idea, and its open question |
 | 08 | `08-architecture-variants` | the four slot arrangements side by side |

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Why the application has to ask, explicitly</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Step 3 of the update sequence — the one that looks redundant</text>
+<rect x="64" y="168" width="700" height="176" rx="16" fill="#03234B"/>
+<text x="96" y="212" font-size="23" fill="#FFFFFF" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The two stages cannot talk to each other.</text>
+<text x="96" y="250" font-size="18" fill="#3CB4E6" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The RoT runs, hands over, and closes HDP behind it.</text>
+<text x="96" y="280" font-size="18" fill="#3CB4E6" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">No call back. No API. No shared RAM.</text>
+<text x="96" y="310" font-size="18" fill="#3CB4E6" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The only channel is: leave something in flash, then reset.</text>
+<rect x="796" y="168" width="740" height="176" rx="16" fill="#ECE9FB" stroke="#6B5BD2" stroke-width="2.4"/>
+<text x="828" y="212" font-size="23" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">So "install this" has to be a mark in flash.</text>
+<text x="828" y="250" font-size="18" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">16 bytes, at the end of the download slot.</text>
+<text x="828" y="280" font-size="18" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The application writes it; the bootloader reads it</text>
+<text x="828" y="310" font-size="18" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">after the next reset. That is the whole protocol.</text>
+<rect x="64" y="386" width="472" height="252" rx="16" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2.4"/>
+<circle cx="108" cy="428" r="20" fill="#1B7CA8"/>
+<text x="108" y="435.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">1</text>
+<text x="140" y="436" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">"Downloaded" is not "wanted"</text>
+<text x="96" y="486" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Download at 2 a.m., install during a</text>
+<text x="96" y="513" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">maintenance window. Two decisions,</text>
+<text x="96" y="540" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">two menu items: Download (2), then</text>
+<text x="96" y="567" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Request installation (3).</text>
+<rect x="564" y="386" width="472" height="252" rx="16" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<circle cx="608" cy="428" r="20" fill="#12A05C"/>
+<text x="608" y="435.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">2</text>
+<text x="640" y="436" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">It proves the download finished</text>
+<text x="596" y="486" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Erased flash is 0xFF, and an aborted</text>
+<text x="596" y="513" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">transfer leaves a slot that looks like a</text>
+<text x="596" y="540" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">valid start. The magic sits AFTER the</text>
+<text x="596" y="567" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">image — so it exists only if all of it does.</text>
+<rect x="1064" y="386" width="472" height="252" rx="16" fill="#FDF1DE" stroke="#E08A1E" stroke-width="2.4"/>
+<circle cx="1108" cy="428" r="20" fill="#E08A1E"/>
+<text x="1108" y="435.5" font-size="21" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">3</text>
+<text x="1140" y="436" font-size="20" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Deliberately not a trust signal</text>
+<text x="1096" y="486" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The app writes it, so it can only say</text>
+<text x="1096" y="513" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">"look here" — never "trust this".</text>
+<text x="1096" y="540" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Verification happens afterwards, and</text>
+<text x="1096" y="567" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">rejects anything that fails.</text>
+<text x="64" y="686" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">the whole handshake</text>
+<rect x="64" y="704" width="610" height="56" rx="8" fill="#1B7CA8"/>
+<text x="369.0" y="730" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">download the image</text>
+<text x="369.0" y="750" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.85">seconds to minutes</text>
+<text x="679" y="738" font-size="26" fill="#5B6B80" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">›</text>
+<rect x="684" y="704" width="290" height="56" rx="8" fill="#6B5BD2"/>
+<text x="829.0" y="730" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">write 16 bytes</text>
+<text x="829.0" y="750" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.85">instant</text>
+<text x="979" y="738" font-size="26" fill="#5B6B80" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">›</text>
+<rect x="984" y="704" width="190" height="56" rx="8" fill="#03234B"/>
+<text x="1079.0" y="738" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">reset</text>
+<text x="1179" y="738" font-size="26" fill="#5B6B80" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">›</text>
+<rect x="1184" y="704" width="342" height="56" rx="8" fill="#12A05C"/>
+<text x="1355.0" y="738" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">RoT verifies and installs</text>
+<text x="64" y="806" font-size="18" fill="#D0323C" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Without the flag the RoT would have to guess — re-verifying the download slot on every boot, or installing whatever happens to be lying there.</text>
+</svg>
