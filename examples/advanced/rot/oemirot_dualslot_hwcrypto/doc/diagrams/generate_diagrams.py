@@ -848,10 +848,131 @@ def d12_decision_tree():
     return write("12-decision-tree", o)
 
 
+# ============================================================== diagram 13 ===
+def _qa(x, y, w, q, a, bullets, col, colbg, qh=54):
+    """One question/answer block."""
+    o = rect(x, y, w, qh, fill=col, rx=12)
+    o += text(x + 26, y + qh / 2 + 8, q, size=22, fill=WHITE, weight="700", anchor="start")
+    o += text(x + 26, y + qh + 44, a, size=21, fill=col, weight="700", anchor="start")
+    for i, b in enumerate(bullets):
+        o += text(x + 26, y + qh + 80 + i * 28, "•  " + b, size=17,
+                  fill=INK_SOFT, anchor="start")
+    return o
+
+
+def d13_faq_images():
+    o = title_block("Questions that keep coming up  (1/2)",
+                    "The image format, and what the application is allowed to touch")
+
+    o += _qa(64, 168, 1472,
+             "What is the \"magic trailer\"?",
+             "A 16-byte flag the app writes at the very end of the download slot — \"a candidate is ready\".",
+             ["MCUboot's standard value, written at 0xFFFF0 in one flash programming unit (0x10 bytes)",
+              "It sits AFTER the image data, so it can only be complete if the whole download was — power loss leaves no magic, and the RoT ignores the slot",
+              "It is not a trust signal: the app writes it, so a forged one only makes the RoT verify and reject"],
+             INK, WHITE)
+
+    o += rect(64, 382, 1472, 74, fill=GRAY_LT, stroke=GRAY_BD, rx=12, sw=2)
+    o += text(96, 412, "secondary slot", size=16, fill=INK_SOFT, anchor="start")
+    o += text(96, 438, "0x8C000", size=15, fill=INK_SOFT, anchor="start", family=MONO)
+    o += rect(300, 394, 1140, 50, fill=CYAN_LT, stroke=CYAN_DK, rx=8, sw=2)
+    o += text(830, 425, "image data, written front to back", size=18, fill=CYAN_DK, weight="600")
+    o += rect(1448, 394, 76, 50, fill=VIOLET, rx=8)
+    o += text(1486, 418, "MAGIC", size=13, fill=WHITE, weight="700")
+    o += text(1486, 436, "16 B", size=12, fill=WHITE, opacity=0.85)
+    o += text(1486, 470, "0xFFFF0", size=15, fill=VIOLET, weight="700", family=MONO)
+
+    o += _qa(64, 512, 1472,
+             "The image arrives encrypted — should the app decrypt it before writing to flash?",
+             "No. Write it byte for byte, still encrypted. The application never decrypts anything.",
+             ["It could not anyway: the decryption key is at 0x12000, inside HDP, which closes before the app runs",
+              "The RoT unwraps the AES key, decrypts on the fly while hashing (the signature covers the PLAINTEXT), then decrypts while installing",
+              "Invariant: primary slot = clear, secondary slot = encrypted — visible in the two image recipes (-c vs -E)",
+              "In swap mode the RoT re-encrypts the outgoing image on its way to the secondary slot"],
+             GREEN, WHITE)
+
+    o += rect(64, 816, 1472, 56, fill=INK, rx=12)
+    o += text(800, 852, "All the security is in the image format, not in the pipe — so the transport can be anything.",
+              size=20, fill=WHITE, weight="700")
+    return write("13-faq-images", o)
+
+
+# ============================================================== diagram 14 ===
+def d14_faq_data():
+    o = title_block("Questions that keep coming up  (2/2)",
+                    "Configuration and calibration data, and why it must live outside the slots")
+
+    o += _qa(64, 168, 1472,
+             "We keep calibration and configuration in flash. Must we mirror it into both slots?",
+             "No — move it OUT of the slots. The bootloader never touches anything outside them.",
+             ["Inside a slot it does not survive: overwrite erases the primary slot wholesale;",
+              "swap carries the page out to the secondary slot, hands back a sector of the incoming image — and a revert undoes it again",
+              "Mirroring inside the slots does not help; a dedicated region outside them does"],
+             VIOLET, WHITE)
+
+    # before / after strips -------------------------------------------------
+    x0, wtot = 64, 1472
+
+    y = 430
+    o += cross(84, y - 20, RED, 0.8)
+    o += text(108, y - 13, "today — the slots run to the top of flash, nothing is reserved",
+              size=18, weight="700", anchor="start")
+    kb = wtot / 1024.0
+    for name, off, size_kb, col in (("RoT + keys", 0, 96, INK),
+                                    ("PRIMARY  464 KB", 96, 464, GREEN),
+                                    ("SECONDARY  464 KB", 560, 464, CYAN_DK)):
+        o += rect(x0 + off * kb, y, size_kb * kb - 4, 54, fill=col, rx=7)
+        o += text(x0 + (off + size_kb / 2) * kb, y + 34, name, size=18,
+                  fill=WHITE, weight="700")
+
+    y2 = 566
+    o += check(84, y2 - 20, GREEN, 0.8)
+    o += text(108, y2 - 13,
+              "one way to make room — 16 KB reserved, taken from both slots   (data block not to scale)",
+              size=18, weight="700", anchor="start")
+    dataw = 124
+    kb2 = (wtot - dataw) / 1008.0
+    xx = x0
+    for name, size_kb, col in (("RoT + keys", 96, INK),
+                               ("PRIMARY  456 KB", 456, GREEN),
+                               ("SECONDARY  456 KB", 456, CYAN_DK)):
+        w = size_kb * kb2
+        o += rect(xx, y2, w - 4, 54, fill=col, rx=7)
+        o += text(xx + w / 2, y2 + 34, name, size=18, fill=WHITE, weight="700")
+        if name != "RoT + keys":
+            o += text(xx, y2 + 82, "0x18000" if "PRIMARY" in name else "0x8A000",
+                      size=15, fill=INK_SOFT, anchor="start", family=MONO)
+        xx += w
+    o += rect(xx, y2, dataw, 54, fill=VIOLET, rx=7)
+    o += text(xx + dataw / 2, y2 + 26, "DATA", size=17, fill=WHITE, weight="700")
+    o += text(xx + dataw / 2, y2 + 46, "16 KB", size=14, fill=WHITE, opacity=0.9)
+    o += text(xx, y2 + 82, "0xFC000", size=15, fill=VIOLET, weight="700",
+              anchor="start", family=MONO)
+
+    cards = [("Swap needs equal slots", RED,
+              ["so N bytes of data area", "costs 2N bytes of flash"]),
+             ("Do not rewrite a struct in place", AMBER,
+              ["copy boot_nv_counters.c:", "append + CRC, newest wins"]),
+             ("Signed data shipped by you", GREEN,
+              ["is a different mechanism —", "the data image (2 more slots)"])]
+    x = 64
+    for t, col, lines in cards:
+        o += rect(x, 706, 476, 112, fill=WHITE, stroke=col, rx=14, sw=2.4)
+        o += text(x + 24, 740, t, size=19, fill=col, weight="700", anchor="start")
+        for i, ln in enumerate(lines):
+            o += text(x + 24, 770 + i * 25, ln, size=16, fill=INK_SOFT, anchor="start")
+        x += 504
+
+    o += text(64, 862, "Also: the primary slot spills 48 KB past the 0x80000 bank boundary — so \"put the data in the other bank\" needs a re-layout first.",
+              size=18, fill=INK_SOFT, anchor="start")
+    return write("14-faq-data", o)
+
+
 # ------------------------------------------------------------------- main ---
 DIAGRAMS = [d01_two_stage_boot, d02_flash_map, d03_pipeline, d04_boot_decision,
             d05_overwrite, d06_swap, d07_bank_swap, d08_variants, d09_comparison,
-            d10_failure_modes, d11_trust_model, d12_decision_tree]
+            d10_failure_modes, d11_trust_model, d12_decision_tree,
+            d13_faq_images, d14_faq_data]
 
 
 def main():

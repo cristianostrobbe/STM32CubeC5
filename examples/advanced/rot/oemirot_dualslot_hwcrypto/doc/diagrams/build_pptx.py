@@ -58,6 +58,12 @@ SLIDES = [
     ("12-decision-tree",
      "Proposed order for the decision. Questions 5 and 6 are irreversible once devices are "
      "provisioned, so they need an answer before anything ships."),
+    ("13-faq-images",
+     "FAQ. The magic trailer is a completion flag, not a trust signal - and the app writes "
+     "the image encrypted because it has no access to the key. Keep for questions."),
+    ("14-faq-data",
+     "FAQ. Calibration data must sit outside the slots; mirroring inside them does not work. "
+     "Note the cost: reserving N bytes removes N from each slot."),
 ]
 
 

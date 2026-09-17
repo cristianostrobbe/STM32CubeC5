@@ -12,7 +12,7 @@ Slide-ready versions of the schemes in [`../../DOC.md`](../../DOC.md),
 | `generate_diagrams.py` | regenerates everything in `svg/` and `png/` |
 | `build_pptx.py` | rebuilds the deck from `png/` |
 
-## The twelve diagrams
+## The fourteen diagrams
 
 | # | File | Shows |
 |---|---|---|
@@ -28,6 +28,8 @@ Slide-ready versions of the schemes in [`../../DOC.md`](../../DOC.md),
 | 10 | `10-failure-modes` | what happens to a bad image, overwrite vs. swap |
 | 11 | `11-trust-model` | signing vs. encryption, and where each key lives |
 | 12 | `12-decision-tree` | the six questions, in the order to answer them |
+| 13 | `13-faq-images` | FAQ — the magic trailer, and why the app writes the image still encrypted |
+| 14 | `14-faq-data` | FAQ — where calibration and configuration data must live |
 
 ## Using them in PowerPoint
 
@@ -53,6 +55,6 @@ change the palette constants there to match a corporate template and re-run.
 ## Accuracy
 
 Offsets, sizes and flag names come from `NUCLEO-C5A3ZG/oemirot/flash_layout.h`,
-`mcuboot_config.h` and `NUCLEO-C5A3ZG/appli/appli_flash_layout.h`. Diagrams 07 and parts
+`mcuboot_config.h` and `NUCLEO-C5A3ZG/appli/appli_flash_layout.h`. Diagram 07 and parts
 of 08–09 describe arrangements that are **not implemented in this repository** and say so
 on the slide itself — keep those labels if you reuse the slides.

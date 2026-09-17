@@ -228,6 +228,39 @@ STEP 8    the new firmware proves itself:
   same image may execute from either slot.
 - The application **must** call the confirm step, or every single update silently reverts.
 
+### What happens to the encrypted image
+
+The application never decrypts anything — it writes the image to the secondary slot
+exactly as the signing tool produced it. It could not do otherwise: the decryption key
+sits at `0x12000`, inside HDP, which is closed before the application runs.
+
+The repository shows the resulting invariant in its two image recipes:
+
+| | `appli_provisioning_code_image.xml` | `appli_fwu_code_image.xml` |
+|---|---|---|
+| encryption | `-c` — **no encryption (clear)** | `-E` with the encryption key |
+| output | `appli_provisioning_sign.hex` | `appli_fwu_enc_sign.bin` |
+| destination | **primary** slot, via the programmer | **secondary** slot, over YModem |
+
+So: **primary slot = plaintext, secondary slot = encrypted.** The RoT unwraps the image's
+AES key with the ECIES private key, decrypts on the fly while hashing (the signature is
+computed over the *plaintext*, so decryption happens before the image is trusted), and
+decrypts again while installing.
+
+Swap adds one twist over overwrite: to preserve that invariant, MCUboot **re-encrypts the
+outgoing image** as it moves into the secondary slot, and stores the AES key in the image
+trailer so the swap can resume after a reset and so a revert still works. Two consequences:
+
+- both slots' trailers need room for the encryption keys — factor it into slot sizing;
+- that key lands in a slot trailer, and the slots are **not** covered by HDP
+  (`0x00000`–`0x17FFF` only), so on-device code can read it. `MCUBOOT_SWAP_SAVE_ENCTLV`
+  stores the ECIES-encrypted TLV instead of the bare key, at the cost of redoing the
+  ECIES decrypt on each resume.
+
+This paragraph describes upstream MCUboot behaviour; `middleware/mcuboot` is an
+unpopulated submodule in this checkout, so it could not be verified against ST's `hal2`
+fork. Confirm there before relying on the details.
+
 > **Already present in this repository:** the confirm mechanism is written and compiled
 > out, not missing. `appli_flash_layout.h` defines `FLASH_PRIMARY_APP_CONFIRM_OFFSET`
 > (`0x8BFE0`) under `#if !defined(OVERWRITE_ONLY)`, and `fw_update_app.c` has
@@ -271,7 +304,10 @@ STEP 8    confirm-or-revert works exactly as in §3, but reverting is
 ### The catch you must resolve first
 
 `SWAP_BANK` exchanges the **entire** bank mapping — including `0x08000000`, where the RoT
-itself lives. Flipping it moves the bootloader too. A working mirror design therefore has
+itself lives. A second obstacle: the current slots are not bank-contained — the primary
+slot spills 48 KB past the `0x80000` boundary into bank 2 — so a mirror scheme needs a
+re-layout before anything else. And any fixed region of device data would appear at a
+different address after the flip. Flipping it moves the bootloader too. A working mirror design therefore has
 to answer: *where does the immutable RoT live such that it is still at the boot address
 after the swap?* (An identical copy in both banks is the usual answer, costing 72 KB
 twice, and both copies must be WRP-protected.)

@@ -72,6 +72,7 @@ Each row is an **independent axis**. "This example" = what
 | Q | Fast wake from Standby | on (skip re-check) · off | **on** | `OEMIROT_FAST_WAKE_UP` |
 | R | Where the download lands | internal flash · external flash · no field update | **internal** | `flash_layout.h`, drivers |
 | S | Who runs the update agent | the application · a dedicated loader · offline only | **the application** | `appli/fw_update_app.c` |
+| T | Device data (calibration, settings) | dedicated region · inside a slot · external | **no region reserved** | `flash_layout.h` |
 
 ---
 
@@ -267,6 +268,45 @@ but it means a firmware that boots-but-misbehaves may take the update path down 
 which matters a lot when axis A is "overwrite" (no revert). Alternatives: a small
 dedicated loader stage, or ST's Open Bootloader / a DFU path.
 
+### 2.13 Axis T — where device-written data lives
+
+Two different things get called "data", and they need different answers:
+
+- **Device-specific data** — end-of-line calibration, user settings, counters. Written *by
+  the device*, different on every unit, must survive every update. This is not MCUboot's
+  business at all: it needs a plain flash region **outside both slots**.
+- **Manufacturer-delivered data** — certificates, config blobs, tables shipped with a
+  release and signed like firmware. That is the data-image feature (axis K), and in swap
+  mode it swaps alongside the app.
+
+Anything of the first kind placed *inside* a slot is destroyed by the first update:
+overwrite erases the primary slot wholesale, and swap carries the page out to the
+secondary slot and hands back whatever sector of the incoming image lands there — then
+undoes it on a revert. Mirroring a copy in both slots does not fix this; moving the data
+out of the slots does.
+
+The catch in this example: **no region is reserved and there is no free flash.** The two
+slots run to `0x100000`. Carving space means shrinking both slots, and since a swap needs
+equal slots, **N bytes of data area costs 2N bytes of flash**. A page-aligned example
+reserving 16 KB:
+
+| Region | Offset | Size |
+|---|---|---|
+| primary | `0x18000` | `0x72000` (456 KB) |
+| secondary | `0x8A000` | `0x72000` (456 KB) |
+| device data | `0xFC000` | `0x4000` (16 KB) |
+
+Storage format matters as much as placement: a single struct rewritten in place loses
+everything if power drops during the erase. `oemirot/boot_nv_counters.c` is a compact
+model to copy (append-only records with CRC, newest wins, erase only when the page fills);
+`middleware/levelx` is the heavier option when the data changes often.
+
+Related constraint — **read-while-write**. On a dual-bank part you generally cannot
+execute from a bank while erasing or writing it. Today the application straddles both
+banks (the primary slot spills 48 KB past `0x80000`), so a data region cannot simply be
+placed "in the other bank". Getting clean RWW means re-laying out so the code sits wholly
+in bank 1. Confirm the STM32C5 RWW rules in the reference manual before relying on this.
+
 ---
 
 ## 3. How many combinations are there, really?
@@ -305,6 +345,9 @@ build or the boot will not work; "incoherent" means it works but contradicts its
 | tamper "erase secrets" + noisy tamper source → **field failures** | irrecoverable erase on a false positive |
 | fast wake-up + product never enters Standby → **dead setting** | no effect |
 | hardware crypto + a part without PKA/SAES → **impossible** | software backend exists for exactly this case |
+| device-written data inside a slot → **destroyed on first update** | overwrite erases it; swap relocates it and reverts bring it back |
+| data region + swap → **costs double** | slots must stay equal, so N bytes reserved removes N from each slot |
+| bank swap + a fixed data region → **address moves** | `SWAP_BANK` flips the whole map, including where that region appears |
 
 ---
 
@@ -335,6 +378,7 @@ that are expressible.
 | Q fast wake | on | n/a | per product | per product | per product | per product |
 | R download to | internal | n/a | internal | internal | **external QSPI** | internal |
 | S update agent | app | none | app | app | app | dedicated loader |
+| T device data | none reserved | after the app | carve from both slots | carve from both slots | internal, slots are external | carve from both slots |
 | App budget | ~464 KB | ~925 KB | ~464 KB | ~460 KB | ~925 KB | ~460 KB |
 | Extra work | **none — ships today** | trim RoT config | provisioning/OB work | enable swap + confirm API | QSPI driver in RoT | SAES + TZ + key strategy |
 
@@ -355,7 +399,8 @@ Ask these in order; each answer removes whole branches.
 2. **If a signed firmware boots and then fails, must the device recover by itself?**
    Yes → swap (P3/P5). No → overwrite (P0/P2/P4).
 3. **Does the application fit in ~464 KB?** No → external secondary slot (P4), or
-   reconsider step 2.
+   reconsider step 2. Subtract the device-data region here too (§2.13) — reserving it
+   costs twice its size, and retrofitting it later moves every slot boundary.
 4. **Is the firmware confidential?** No → drop encryption and one key disappears from the
    device. Yes → decide raw-in-flash vs. SAES-held.
 5. **What happens if the signing key leaks?** If "we accept losing the fleet" is not an
@@ -385,6 +430,7 @@ Honesty about what is available versus what needs building:
 | SAES-held decryption key | **not implemented** — currently raw key in flash |
 | key revocation / multiple anchors | **not implemented** — single anchor in `keys_map.c` |
 | TrustZone / isolation | `example.json: isolation false, trustzone false` — **not in this example** |
+| region for device-written data | **none reserved** — the slots run to the top of flash |
 | RDP 2 production posture | provisioning supports it; example ships at RDP 0 |
 
 Note also: the shared provisioning framework lives in `utilities/rot_provisioning/`, a git

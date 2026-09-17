@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Questions that keep coming up  (1/2)</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The image format, and what the application is allowed to touch</text>
+<rect x="64" y="168" width="1472" height="54" rx="12" fill="#03234B"/>
+<text x="90" y="203.0" font-size="22" fill="#FFFFFF" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">What is the "magic trailer"?</text>
+<text x="90" y="266" font-size="21" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">A 16-byte flag the app writes at the very end of the download slot — "a candidate is ready".</text>
+<text x="90" y="302" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  MCUboot's standard value, written at 0xFFFF0 in one flash programming unit (0x10 bytes)</text>
+<text x="90" y="330" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  It sits AFTER the image data, so it can only be complete if the whole download was — power loss leaves no magic, and the RoT ignores the slot</text>
+<text x="90" y="358" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  It is not a trust signal: the app writes it, so a forged one only makes the RoT verify and reject</text>
+<rect x="64" y="382" width="1472" height="74" rx="12" fill="#EFF3F7" stroke="#C6D0DB" stroke-width="2"/>
+<text x="96" y="412" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">secondary slot</text>
+<text x="96" y="438" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Consolas, Menlo, monospace">0x8C000</text>
+<rect x="300" y="394" width="1140" height="50" rx="8" fill="#E4F4FC" stroke="#1B7CA8" stroke-width="2"/>
+<text x="830" y="425" font-size="18" fill="#1B7CA8" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">image data, written front to back</text>
+<rect x="1448" y="394" width="76" height="50" rx="8" fill="#6B5BD2"/>
+<text x="1486" y="418" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">MAGIC</text>
+<text x="1486" y="436" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.85">16 B</text>
+<text x="1486" y="470" font-size="15" fill="#6B5BD2" text-anchor="middle" font-weight="700" font-family="Consolas, Menlo, monospace">0xFFFF0</text>
+<rect x="64" y="512" width="1472" height="54" rx="12" fill="#12A05C"/>
+<text x="90" y="547.0" font-size="22" fill="#FFFFFF" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">The image arrives encrypted — should the app decrypt it before writing to flash?</text>
+<text x="90" y="610" font-size="21" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">No. Write it byte for byte, still encrypted. The application never decrypts anything.</text>
+<text x="90" y="646" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  It could not anyway: the decryption key is at 0x12000, inside HDP, which closes before the app runs</text>
+<text x="90" y="674" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  The RoT unwraps the AES key, decrypts on the fly while hashing (the signature covers the PLAINTEXT), then decrypts while installing</text>
+<text x="90" y="702" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  Invariant: primary slot = clear, secondary slot = encrypted — visible in the two image recipes (-c vs -E)</text>
+<text x="90" y="730" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  In swap mode the RoT re-encrypts the outgoing image on its way to the secondary slot</text>
+<rect x="64" y="816" width="1472" height="56" rx="12" fill="#03234B"/>
+<text x="800" y="852" font-size="20" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">All the security is in the image format, not in the pipe — so the transport can be anything.</text>
+</svg>

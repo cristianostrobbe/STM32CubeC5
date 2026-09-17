@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Questions that keep coming up  (2/2)</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Configuration and calibration data, and why it must live outside the slots</text>
+<rect x="64" y="168" width="1472" height="54" rx="12" fill="#6B5BD2"/>
+<text x="90" y="203.0" font-size="22" fill="#FFFFFF" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">We keep calibration and configuration in flash. Must we mirror it into both slots?</text>
+<text x="90" y="266" font-size="21" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">No — move it OUT of the slots. The bootloader never touches anything outside them.</text>
+<text x="90" y="302" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  Inside a slot it does not survive: overwrite erases the primary slot wholesale;</text>
+<text x="90" y="330" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  swap carries the page out to the secondary slot, hands back a sector of the incoming image — and a revert undoes it again</text>
+<text x="90" y="358" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  Mirroring inside the slots does not help; a dedicated region outside them does</text>
+<path d="M77.6,403.6 L90.4,416.4" fill="none" stroke="#D0323C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M90.4,403.6 L77.6,416.4" fill="none" stroke="#D0323C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="108" y="417" font-size="18" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">today — the slots run to the top of flash, nothing is reserved</text>
+<rect x="64.0" y="430" width="134.0" height="54" rx="7" fill="#03234B"/>
+<text x="133.0" y="464" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">RoT + keys</text>
+<rect x="202.0" y="430" width="663.0" height="54" rx="7" fill="#12A05C"/>
+<text x="535.5" y="464" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY  464 KB</text>
+<rect x="869.0" y="430" width="663.0" height="54" rx="7" fill="#1B7CA8"/>
+<text x="1202.5" y="464" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY  464 KB</text>
+<path d="M76.8,546 L82.4,551.6 L92.0,539.6" fill="none" stroke="#12A05C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="108" y="553" font-size="18" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">one way to make room — 16 KB reserved, taken from both slots   (data block not to scale)</text>
+<rect x="64" y="566" width="124.38095238095238" height="54" rx="7" fill="#03234B"/>
+<text x="128.1904761904762" y="600" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">RoT + keys</text>
+<rect x="192.38095238095238" y="566" width="605.8095238095237" height="54" rx="7" fill="#12A05C"/>
+<text x="497.2857142857142" y="600" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY  456 KB</text>
+<text x="192.38095238095238" y="648" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Consolas, Menlo, monospace">0x18000</text>
+<rect x="802.1904761904761" y="566" width="605.8095238095237" height="54" rx="7" fill="#1B7CA8"/>
+<text x="1107.095238095238" y="600" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY  456 KB</text>
+<text x="802.1904761904761" y="648" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Consolas, Menlo, monospace">0x8A000</text>
+<rect x="1412.0" y="566" width="124" height="54" rx="7" fill="#6B5BD2"/>
+<text x="1474.0" y="592" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">DATA</text>
+<text x="1474.0" y="612" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif" opacity="0.9">16 KB</text>
+<text x="1412.0" y="648" font-size="15" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Consolas, Menlo, monospace">0xFC000</text>
+<rect x="64" y="706" width="476" height="112" rx="14" fill="#FFFFFF" stroke="#D0323C" stroke-width="2.4"/>
+<text x="88" y="740" font-size="19" fill="#D0323C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Swap needs equal slots</text>
+<text x="88" y="770" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">so N bytes of data area</text>
+<text x="88" y="795" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">costs 2N bytes of flash</text>
+<rect x="568" y="706" width="476" height="112" rx="14" fill="#FFFFFF" stroke="#E08A1E" stroke-width="2.4"/>
+<text x="592" y="740" font-size="19" fill="#E08A1E" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Do not rewrite a struct in place</text>
+<text x="592" y="770" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">copy boot_nv_counters.c:</text>
+<text x="592" y="795" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">append + CRC, newest wins</text>
+<rect x="1072" y="706" width="476" height="112" rx="14" fill="#FFFFFF" stroke="#12A05C" stroke-width="2.4"/>
+<text x="1096" y="740" font-size="19" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Signed data shipped by you</text>
+<text x="1096" y="770" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">is a different mechanism —</text>
+<text x="1096" y="795" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the data image (2 more slots)</text>
+<text x="64" y="862" font-size="18" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">Also: the primary slot spills 48 KB past the 0x80000 bank boundary — so "put the data in the other bank" needs a re-layout first.</text>
+</svg>
