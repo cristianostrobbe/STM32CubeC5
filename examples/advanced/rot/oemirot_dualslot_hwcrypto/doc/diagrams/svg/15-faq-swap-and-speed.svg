@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Questions that keep coming up  (3/3)</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">What swap really costs, and what encryption does not cost</text>
+<rect x="64" y="168" width="1472" height="54" rx="12" fill="#1B7CA8"/>
+<text x="90" y="203.0" font-size="22" fill="#FFFFFF" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">For swap, do we need two bootloaders? Do we mirror one bank into the other?</text>
+<text x="90" y="266" font-size="21" fill="#1B7CA8" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">No to both. One bootloader, at 0x00000, never moved and never duplicated.</text>
+<text x="90" y="302" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  Two different mechanisms share the word "swap" — this is the confusing part</text>
+<text x="90" y="330" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  DUAL-SLOT SWAP: software exchanges the two SLOT CONTENTS. The RoT is not part of the move</text>
+<text x="90" y="358" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  BANK SWAP (mirror): hardware flips the WHOLE address map, including 0x08000000 where the RoT lives — only THAT would need a second copy (not implemented)</text>
+<text x="90" y="386" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  The running image is always in the primary slot, so it keeps today's link address: no relinking, no position-independent code</text>
+<rect x="64" y="412" width="250" height="62" rx="8" fill="#03234B"/>
+<text x="189" y="442" font-size="19" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">RoT</text>
+<text x="189" y="463" font-size="13" fill="#3CB4E6" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">never moves, never copied</text>
+<rect x="340" y="412" width="540" height="62" rx="10" fill="#E2F5EC" stroke="#12A05C" stroke-width="2.4"/>
+<text x="610.0" y="437.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">PRIMARY</text>
+<text x="610.0" y="463.0" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">the image that runs</text>
+<rect x="1000" y="412" width="536" height="62" rx="10" fill="url(#hatchGray)" stroke="#C6D0DB" stroke-width="2.4"/>
+<text x="1268.0" y="437.0" font-size="19" fill="#03234B" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SECONDARY</text>
+<text x="1268.0" y="463.0" font-size="16" fill="#5B6B80" text-anchor="middle" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">the previous image</text>
+<line x1="890" y1="434" x2="988" y2="434" stroke="#6B5BD2" stroke-width="3" stroke-linecap="round" marker-end="url(#arCyan)"/>
+<line x1="988" y1="454" x2="890" y2="454" stroke="#6B5BD2" stroke-width="3" stroke-linecap="round" marker-end="url(#arCyan)"/>
+<text x="940" y="496" font-size="16" fill="#6B5BD2" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">contents exchanged</text>
+<rect x="64" y="544" width="1472" height="54" rx="12" fill="#12A05C"/>
+<text x="90" y="579.0" font-size="22" fill="#FFFFFF" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Does encryption slow the application down?</text>
+<text x="90" y="642" font-size="21" fill="#12A05C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">No. Zero runtime cost — the application executes plaintext from the primary slot.</text>
+<text x="90" y="678" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  Before jumping, the RoT DISABLES AND RESETS the crypto clocks (RNG, SAES, HASH, PKA, CCB) — no crypto hardware is even running while your code does</text>
+<text x="90" y="706" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  Decryption happens once, at install time, and is bounded by flash programming speed rather than by AES</text>
+<text x="90" y="734" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  Boot time is driven by hashing the image and by ECDSA — which is exactly what the hash-reference cache exists to skip</text>
+<text x="90" y="762" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">•  A runtime cost would appear only if you executed in place from encrypted EXTERNAL flash — not the case here</text>
+<rect x="64" y="822" width="1472" height="54" rx="12" fill="#03234B"/>
+<text x="800" y="857" font-size="20" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Encryption costs install time and a key to protect. It costs the application nothing.</text>
+</svg>

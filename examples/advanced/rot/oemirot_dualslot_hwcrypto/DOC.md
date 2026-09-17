@@ -186,7 +186,7 @@ Decisions to make, with the trade-offs as they apply to an STM32C5-class part.
 |---|---|---|---|---|
 | **Single slot** (secure boot only) | 1 × app | none | none | No in-field update, or update via a separate loader. Max app size. |
 | **Dual slot overwrite** *(this example)* | 2 × app | **no** | copy whole image | Simplest, deterministic, power-fail safe if the copy restarts. |
-| **Dual slot swap (`SWAP_USING_MOVE`)** | 2 × app + 1 sector scratch | **yes** (auto-revert if app doesn't confirm) | ~2× copy | Needs `MCUBOOT_SWAP_USING_MOVE` (already stubbed in `mcuboot_config.h`) and a confirm/`boot_set_confirmed()` step in the app. Image must not be `ROM_FIXED`. |
+| **Dual slot swap (`SWAP_USING_MOVE`)** | 2 × app + 1 sector scratch | **yes** (auto-revert if app doesn't confirm) | ~2× copy | Needs `MCUBOOT_SWAP_USING_MOVE` (already stubbed in `mcuboot_config.h`), trailer + spare-sector space, and a confirm step in the app (already written, compiled out). The image still runs from the primary slot, so it keeps its current link address. |
 | **Mirror / bank swap (`SWAP_BANK` OB)** | 2 × app (one per bank) | **yes**, instantaneous | ~0 (option-byte swap) | Exploits the C5's dual-bank + `SWAP_BANK` OB. Needs a re-layout first: today the primary slot straddles the bank boundary. Both images must be linked at the *same* logical address. Requires an OB write in the RoT and a reset. |
 
 Questions to settle:

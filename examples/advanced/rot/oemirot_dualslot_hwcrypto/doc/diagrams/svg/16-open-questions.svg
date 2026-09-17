@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"
+     viewBox="0 0 1600 900" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="ar" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="context-stroke"/>
+  </marker>
+  <marker id="arInk" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#03234B"/>
+  </marker>
+  <marker id="arRed" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#D0323C"/>
+  </marker>
+  <marker id="arGreen" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#12A05C"/>
+  </marker>
+  <marker id="arCyan" markerWidth="11" markerHeight="8" refX="10" refY="4"
+          orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L11,4 L0,8 Z" fill="#1B7CA8"/>
+  </marker>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#FDF1DE"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#E08A1E" stroke-width="3.5" opacity="0.55"/>
+  </pattern>
+  <pattern id="hatchGray" width="9" height="9" patternTransform="rotate(45)"
+           patternUnits="userSpaceOnUse">
+    <rect width="9" height="9" fill="#EFF3F7"/>
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
+  </pattern>
+</defs>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Open questions — for us, not for the datasheet</text>
+<text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">None of these are answered by the silicon or by the example. Each needs an owner and a date.</text>
+<rect x="64" y="178" width="472" height="560" rx="16" fill="#FFFFFF" stroke="#1B7CA8" stroke-width="2.4"/>
+<rect x="64" y="178" width="472" height="56" rx="16" fill="#1B7CA8"/>
+<rect x="64" y="212" width="472" height="22" rx="0" fill="#1B7CA8"/>
+<text x="300.0" y="214" font-size="19" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">INTEGRATION &amp; EFFORT</text>
+<rect x="82" y="266" width="8" height="60" rx="4" fill="#1B7CA8"/>
+<text x="104" y="290" font-size="17" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">How hard is it to integrate this with</text>
+<text x="104" y="316" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">our existing FW updater?</text>
+<rect x="82" y="366" width="8" height="60" rx="4" fill="#1B7CA8"/>
+<text x="104" y="390" font-size="17" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">What changes on the production line and</text>
+<text x="104" y="416" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">at end-of-line test?</text>
+<rect x="82" y="466" width="8" height="60" rx="4" fill="#1B7CA8"/>
+<text x="104" y="490" font-size="17" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">How do we test updates at scale, and in</text>
+<text x="104" y="516" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">CI?</text>
+<rect x="82" y="566" width="8" height="60" rx="4" fill="#1B7CA8"/>
+<text x="104" y="590" font-size="17" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Who provisions the boards, and with</text>
+<text x="104" y="616" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">which tooling?</text>
+<rect x="82" y="690" width="436" height="34" rx="17" fill="#E4F4FC"/>
+<text x="300.0" y="712" font-size="16" fill="#1B7CA8" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">firmware · manufacturing</text>
+<rect x="564" y="178" width="472" height="560" rx="16" fill="#FFFFFF" stroke="#6B5BD2" stroke-width="2.4"/>
+<rect x="564" y="178" width="472" height="56" rx="16" fill="#6B5BD2"/>
+<rect x="564" y="212" width="472" height="22" rx="0" fill="#6B5BD2"/>
+<text x="800.0" y="214" font-size="19" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">KEYS &amp; PROCESS</text>
+<rect x="582" y="266" width="8" height="60" rx="4" fill="#6B5BD2"/>
+<text x="604" y="290" font-size="17" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Where is the signing key stored, and who</text>
+<text x="604" y="316" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">is allowed to use it?</text>
+<rect x="582" y="366" width="8" height="60" rx="4" fill="#6B5BD2"/>
+<text x="604" y="390" font-size="17" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">One key for everything, or per product</text>
+<text x="604" y="416" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">line, per batch?</text>
+<rect x="582" y="466" width="8" height="60" rx="4" fill="#6B5BD2"/>
+<text x="604" y="490" font-size="17" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">What is the plan if it leaks? Revocation</text>
+<text x="604" y="516" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">has to be designed in NOW</text>
+<rect x="582" y="566" width="8" height="60" rx="4" fill="#6B5BD2"/>
+<text x="604" y="590" font-size="17" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Who signs a release, and what approves</text>
+<text x="604" y="616" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">that signature?</text>
+<rect x="582" y="690" width="436" height="34" rx="17" fill="#ECE9FB"/>
+<text x="800.0" y="712" font-size="16" fill="#6B5BD2" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">security · IT</text>
+<rect x="1064" y="178" width="472" height="560" rx="16" fill="#FFFFFF" stroke="#12A05C" stroke-width="2.4"/>
+<rect x="1064" y="178" width="472" height="56" rx="16" fill="#12A05C"/>
+<rect x="1064" y="212" width="472" height="22" rx="0" fill="#12A05C"/>
+<text x="1300.0" y="214" font-size="19" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">SCOPE &amp; POLICY</text>
+<rect x="1082" y="266" width="8" height="60" rx="4" fill="#12A05C"/>
+<text x="1104" y="290" font-size="17" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Do we harden ALL next-gen devices, or</text>
+<text x="1104" y="316" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">only some product lines?</text>
+<rect x="1082" y="366" width="8" height="60" rx="4" fill="#12A05C"/>
+<text x="1104" y="390" font-size="17" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Which RDP level ships — and does it</text>
+<text x="1104" y="416" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">still allow RMA and failure analysis?</text>
+<rect x="1082" y="466" width="8" height="60" rx="4" fill="#12A05C"/>
+<text x="1104" y="490" font-size="17" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">What is the recovery story for a device</text>
+<text x="1104" y="516" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">that will not boot in the field?</text>
+<rect x="1082" y="566" width="8" height="60" rx="4" fill="#12A05C"/>
+<text x="1104" y="590" font-size="17" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Any certification driving this (PSA,</text>
+<text x="1104" y="616" font-size="17" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">SESIP, CRA)?</text>
+<rect x="1082" y="690" width="436" height="34" rx="17" fill="#E2F5EC"/>
+<text x="1300.0" y="712" font-size="16" fill="#12A05C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">product · support</text>
+<rect x="64" y="762" width="1472" height="96" rx="16" fill="#FBE7E8" stroke="#D0323C" stroke-width="2.4"/>
+<text x="96" y="800" font-size="21" fill="#D0323C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Two of these close permanently at provisioning:</text>
+<text x="96" y="834" font-size="19" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">the key strategy and the lock-down level. Everything else can be revisited — those two cannot, because the bootloader is immutable.</text>
+</svg>

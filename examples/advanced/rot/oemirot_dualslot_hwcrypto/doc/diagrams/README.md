@@ -12,7 +12,7 @@ Slide-ready versions of the schemes in [`../../DOC.md`](../../DOC.md),
 | `generate_diagrams.py` | regenerates everything in `svg/` and `png/` |
 | `build_pptx.py` | rebuilds the deck from `png/` |
 
-## The fourteen diagrams
+## The sixteen diagrams
 
 | # | File | Shows |
 |---|---|---|
@@ -30,6 +30,8 @@ Slide-ready versions of the schemes in [`../../DOC.md`](../../DOC.md),
 | 12 | `12-decision-tree` | the six questions, in the order to answer them |
 | 13 | `13-faq-images` | FAQ — the magic trailer, and why the app writes the image still encrypted |
 | 14 | `14-faq-data` | FAQ — where calibration and configuration data must live |
+| 15 | `15-faq-swap-and-speed` | FAQ — swap needs one bootloader, and encryption costs no runtime |
+| 16 | `16-open-questions` | the questions this analysis cannot answer — for the team to own |
 
 ## Using them in PowerPoint
 

@@ -32,7 +32,7 @@
     <line x1="0" y1="0" x2="0" y2="9" stroke="#C6D0DB" stroke-width="3.5"/>
   </pattern>
 </defs>
-<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Questions that keep coming up  (1/2)</text>
+<text x="64" y="74" font-size="38" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Questions that keep coming up  (1/3)</text>
 <text x="64" y="110" font-size="21" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">The image format, and what the application is allowed to touch</text>
 <rect x="64" y="168" width="1472" height="54" rx="12" fill="#03234B"/>
 <text x="90" y="203.0" font-size="22" fill="#FFFFFF" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">What is the "magic trailer"?</text>

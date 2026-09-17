@@ -101,8 +101,10 @@ overwriting. The old firmware survives in the secondary slot. The new firmware m
 "check in" after it boots (call a confirm function); if it never does — because it
 crashed — the next boot **automatically puts the old one back**. This is the classic
 safety net.
-*Cost:* the swap moves roughly twice as much data, needs an extra scratch area, and the
-firmware must be built position-independently (it may run from either slot).
+*Cost:* the swap moves roughly twice as much data and needs trailer space plus a spare
+sector to work in. It does **not** need position-independent code: the swap physically
+moves the new image *into* the primary slot, so the running image is always in the primary
+slot and stays linked for the address it uses today.
 *Closer than it looks:* the confirm step already exists in this example's application,
 compiled out by `OVERWRITE_ONLY` — see §7 and [`UPDATE_FLOWS.md`](UPDATE_FLOWS.md) §3.
 
@@ -332,7 +334,7 @@ build or the boot will not work; "incoherent" means it works but contradicts its
 |---|---|
 | overwrite + auto-revert → **impossible** | the old image is physically gone |
 | single slot + field update via the RoT → **impossible** | nowhere to stage the download |
-| swap + `MCUBOOT_ROM_FIXED` → **impossible** | swap means the image may run from either slot, so it cannot be bound to one address |
+| direct-XIP + an image bound to one address → **impossible** | direct XIP runs the image where it lies, so it needs position independence or one build per slot. Swap is *not* this case: it moves the image into the primary slot |
 | swap without a confirm step in the app → **useless** | every update silently reverts on the next boot |
 | bank swap + RoT in only one bank → **broken** | the swap moves the boot address too |
 | encryption on + no decryption key provisioned → **impossible** | verification passes, installation fails |
@@ -423,7 +425,7 @@ Honesty about what is available versus what needs building:
 |---|---|
 | dual-slot overwrite, hardware crypto, P-256, AES-128, anti-rollback, hash-ref | **working, shipped** — this example |
 | software crypto variant | **working** — sibling `oemirot_dualslot` (also covers NUCLEO-C562RE, C542RC) |
-| dual-slot swap | **application side already written**, compiled out: `FLASH_PRIMARY_APP_CONFIRM_OFFSET` (`0x8BFE0`) and `FW_UPDATE_ValidAppImage()` + its "Validate app image" menu entry live behind `#if !defined(OVERWRITE_ONLY)`. Missing: the RoT side (`MCUBOOT_SWAP_USING_MOVE` is commented out) and removal of `MCUBOOT_ROM_FIXED` |
+| dual-slot swap | **application side already written**, compiled out: `FLASH_PRIMARY_APP_CONFIRM_OFFSET` (`0x8BFE0`) and `FW_UPDATE_ValidAppImage()` + its "Validate app image" menu entry live behind `#if !defined(OVERWRITE_ONLY)`. Missing: the RoT side (`MCUBOOT_SWAP_USING_MOVE` is commented out) and the trailer/spare-sector space the move needs |
 | bank swap / mirror | **not present** — `SWAP_BANK` exists only as an option byte set to 0; needs design work |
 | data image | plumbing present, sized to 0 — **enable and size the slots** |
 | external secondary slot | `w25q128j` part driver exists; **no RoT integration here** |

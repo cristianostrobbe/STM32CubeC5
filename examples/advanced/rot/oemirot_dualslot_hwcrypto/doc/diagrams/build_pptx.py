@@ -64,6 +64,13 @@ SLIDES = [
     ("14-faq-data",
      "FAQ. Calibration data must sit outside the slots; mirroring inside them does not work. "
      "Note the cost: reserving N bytes removes N from each slot."),
+    ("15-faq-swap-and-speed",
+     "FAQ. Two corrections worth stressing: swap needs ONE bootloader and no mirroring, and "
+     "encryption costs the running application nothing."),
+    ("16-open-questions",
+     "Closing slide. Do not try to answer these here - the goal is to leave with an owner and "
+     "a date against each. The key strategy and the lock-down level are the two that cannot "
+     "be revisited after provisioning."),
 ]
 
 

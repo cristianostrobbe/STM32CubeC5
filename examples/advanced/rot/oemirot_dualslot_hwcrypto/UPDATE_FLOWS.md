@@ -224,8 +224,12 @@ STEP 8    the new firmware proves itself:
 
 - The swap moves roughly **twice** the data of an overwrite → slower install.
 - Needs a scratch sector and trailer space in both slots → slightly smaller app budget.
-- The image must be **position-independent**: `MCUBOOT_ROM_FIXED` must go, because the
-  same image may execute from either slot.
+- It does **not** need position-independent code. The swap moves the new image *into* the
+  primary slot, so the running image is always there — before, during and after — and
+  keeps the link address it has today. (Running an image wherever it happens to sit is
+  `MCUBOOT_DIRECT_XIP`, a different mode.)
+- **One bootloader, and it never moves.** The RoT stays at `0x00000`; only the two slot
+  contents are exchanged. Nothing is duplicated or mirrored.
 - The application **must** call the confirm step, or every single update silently reverts.
 
 ### What happens to the encrypted image
@@ -267,11 +271,15 @@ fork. Confirm there before relying on the details.
 > `FW_UPDATE_ValidAppImage()` plus the "Validate app image" menu entry behind the same
 > guard. The tooling and the application side of swap mode are in place; what is not
 > exercised here is the RoT side (`MCUBOOT_SWAP_USING_MOVE` is commented out in
-> `mcuboot_config.h`) and the removal of `MCUBOOT_ROM_FIXED`.
+> `mcuboot_config.h`) and the trailer plus spare-sector space the move needs.
 
 ---
 
 ## 4. Bank swap (mirror) — instant install
+
+> **Not the same thing as §3.** Dual-slot swap is software exchanging two slot contents,
+> with one bootloader that never moves. Bank swap is the *hardware* flipping the whole
+> address map. Only this second one raises the "two copies of the RoT" problem below.
 
 The chip has two 512 KB banks and an option byte, `SWAP_BANK`, that exchanges which bank
 is mapped at the boot address. Instead of moving the firmware, you move the *map*.
@@ -356,7 +364,7 @@ STEP 7-8  as in §2
 | Old firmware after install | gone | **gone** | preserved | preserved | gone |
 | Auto-revert on crash | no | **no** | **yes** | **yes** | no |
 | App must confirm | no | **no** | **yes** | yes | no |
-| Position-independent image | no | **no** (`ROM_FIXED`) | **yes** | depends | no |
+| Image link address | primary | primary | **primary** (unchanged) | same address in both banks | primary |
 | Extra flash structures | — | magic | magic + confirm + scratch | magic + confirm + OB | magic |
 | Status here | not built | **works today** | app side ready, RoT side off | not implemented | driver only |
 

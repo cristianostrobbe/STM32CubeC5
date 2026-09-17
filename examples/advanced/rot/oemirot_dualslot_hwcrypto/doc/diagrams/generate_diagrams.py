@@ -861,7 +861,7 @@ def _qa(x, y, w, q, a, bullets, col, colbg, qh=54):
 
 
 def d13_faq_images():
-    o = title_block("Questions that keep coming up  (1/2)",
+    o = title_block("Questions that keep coming up  (1/3)",
                     "The image format, and what the application is allowed to touch")
 
     o += _qa(64, 168, 1472,
@@ -899,7 +899,7 @@ def d13_faq_images():
 
 # ============================================================== diagram 14 ===
 def d14_faq_data():
-    o = title_block("Questions that keep coming up  (2/2)",
+    o = title_block("Questions that keep coming up  (2/3)",
                     "Configuration and calibration data, and why it must live outside the slots")
 
     o += _qa(64, 168, 1472,
@@ -968,11 +968,106 @@ def d14_faq_data():
     return write("14-faq-data", o)
 
 
+# ============================================================== diagram 15 ===
+def d15_faq_swap():
+    o = title_block("Questions that keep coming up  (3/3)",
+                    "What swap really costs, and what encryption does not cost")
+
+    o += _qa(64, 168, 1472,
+             "For swap, do we need two bootloaders? Do we mirror one bank into the other?",
+             "No to both. One bootloader, at 0x00000, never moved and never duplicated.",
+             ["Two different mechanisms share the word \"swap\" — this is the confusing part",
+              "DUAL-SLOT SWAP: software exchanges the two SLOT CONTENTS. The RoT is not part of the move",
+              "BANK SWAP (mirror): hardware flips the WHOLE address map, including 0x08000000 where the RoT lives — only THAT would need a second copy (not implemented)",
+              "The running image is always in the primary slot, so it keeps today's link address: no relinking, no position-independent code"],
+             CYAN_DK, WHITE)
+
+    y = 412
+    o += rect(64, y, 250, 62, fill=INK, rx=8)
+    o += text(189, y + 30, "RoT", size=19, fill=WHITE, weight="700")
+    o += text(189, y + 51, "never moves, never copied", size=13, fill=CYAN, weight="600")
+    o += slot(340, y, 540, 62, "run", "PRIMARY", note="the image that runs")
+    o += slot(1000, y, 536, 62, "old", "SECONDARY", note="the previous image")
+    o += line(890, y + 22, 988, y + 22, color=VIOLET, sw=3, marker="arCyan")
+    o += line(988, y + 42, 890, y + 42, color=VIOLET, sw=3, marker="arCyan")
+    o += text(940, y + 84, "contents exchanged", size=16, fill=VIOLET, weight="700")
+
+    o += _qa(64, 544, 1472,
+             "Does encryption slow the application down?",
+             "No. Zero runtime cost — the application executes plaintext from the primary slot.",
+             ["Before jumping, the RoT DISABLES AND RESETS the crypto clocks (RNG, SAES, HASH, PKA, CCB) — no crypto hardware is even running while your code does",
+              "Decryption happens once, at install time, and is bounded by flash programming speed rather than by AES",
+              "Boot time is driven by hashing the image and by ECDSA — which is exactly what the hash-reference cache exists to skip",
+              "A runtime cost would appear only if you executed in place from encrypted EXTERNAL flash — not the case here"],
+             GREEN, WHITE)
+
+    o += rect(64, 822, 1472, 54, fill=INK, rx=12)
+    o += text(800, 857, "Encryption costs install time and a key to protect. It costs the application nothing.",
+              size=20, fill=WHITE, weight="700")
+    return write("15-faq-swap-and-speed", o)
+
+
+# ============================================================== diagram 16 ===
+def d16_open_questions():
+    o = title_block("Open questions — for us, not for the datasheet",
+                    "None of these are answered by the silicon or by the example. Each needs an owner and a date.")
+
+    cols = [
+        ("INTEGRATION & EFFORT", CYAN_DK, CYAN_LT, "firmware · manufacturing",
+         ["How hard is it to integrate this with our existing FW updater?",
+          "What changes on the production line and at end-of-line test?",
+          "How do we test updates at scale, and in CI?",
+          "Who provisions the boards, and with which tooling?"]),
+        ("KEYS & PROCESS", VIOLET, VIOLET_LT, "security · IT",
+         ["Where is the signing key stored, and who is allowed to use it?",
+          "One key for everything, or per product line, per batch?",
+          "What is the plan if it leaks? Revocation has to be designed in NOW",
+          "Who signs a release, and what approves that signature?"]),
+        ("SCOPE & POLICY", GREEN, GREEN_LT, "product · support",
+         ["Do we harden ALL next-gen devices, or only some product lines?",
+          "Which RDP level ships — and does it still allow RMA and failure analysis?",
+          "What is the recovery story for a device that will not boot in the field?",
+          "Any certification driving this (PSA, SESIP, CRA)?"]),
+    ]
+    x = 64
+    for name, col, colbg, owner, qs in cols:
+        cw = 472
+        o += rect(x, 178, cw, 560, fill=WHITE, stroke=col, rx=16, sw=2.4)
+        o += rect(x, 178, cw, 56, fill=col, rx=16)
+        o += rect(x, 212, cw, 22, fill=col, rx=0)
+        o += text(x + cw / 2, 214, name, size=19, fill=WHITE, weight="700")
+        yy = 290
+        for q in qs:
+            words, line, lines = q.split(), "", []
+            for w in words:
+                if len(line + " " + w) > 40:
+                    lines.append(line); line = w
+                else:
+                    line = (line + " " + w).strip()
+            lines.append(line)
+            o += rect(x + 18, yy - 24, 8, 8 + len(lines) * 26, fill=col, rx=4)
+            for i, ln in enumerate(lines):
+                o += text(x + 40, yy + i * 26, ln, size=17, anchor="start",
+                          weight="600" if i == 0 else "400",
+                          fill=INK if i == 0 else INK_SOFT)
+            yy += len(lines) * 26 + 48
+        o += rect(x + 18, 690, cw - 36, 34, fill=colbg, rx=17)
+        o += text(x + cw / 2, 712, owner, size=16, fill=col, weight="700")
+        x += cw + 28
+
+    o += rect(64, 762, 1472, 96, fill=RED_LT, stroke=RED, rx=16, sw=2.4)
+    o += text(96, 800, "Two of these close permanently at provisioning:", size=21,
+              weight="700", anchor="start", fill=RED)
+    o += text(96, 834, "the key strategy and the lock-down level. Everything else can be revisited — those two cannot, because the bootloader is immutable.",
+              size=19, fill=INK_SOFT, anchor="start")
+    return write("16-open-questions", o)
+
+
 # ------------------------------------------------------------------- main ---
 DIAGRAMS = [d01_two_stage_boot, d02_flash_map, d03_pipeline, d04_boot_decision,
             d05_overwrite, d06_swap, d07_bank_swap, d08_variants, d09_comparison,
             d10_failure_modes, d11_trust_model, d12_decision_tree,
-            d13_faq_images, d14_faq_data]
+            d13_faq_images, d14_faq_data, d15_faq_swap, d16_open_questions]
 
 
 def main():
