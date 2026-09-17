@@ -1,7 +1,8 @@
 # Bootloader architecture — the choices, explained from zero
 
-Companion to [`DOC.md`](DOC.md). `DOC.md` describes **the example as it is**. This file
-answers: *what else could it be?* — every knob we can turn, what each one means in plain
+Companion to [`DOC.md`](DOC.md). `DOC.md` describes **the example as it is**;
+[`UPDATE_FLOWS.md`](UPDATE_FLOWS.md) draws the update sequence for each architecture.
+This file answers: *what else could it be?* — every knob we can turn, what each one means in plain
 language, which combinations are legal, and a short list of realistic complete
 configurations to choose between.
 
@@ -101,6 +102,8 @@ crashed — the next boot **automatically puts the old one back**. This is the c
 safety net.
 *Cost:* the swap moves roughly twice as much data, needs an extra scratch area, and the
 firmware must be built position-independently (it may run from either slot).
+*Closer than it looks:* the confirm step already exists in this example's application,
+compiled out by `OVERWRITE_ONLY` — see §7 and [`UPDATE_FLOWS.md`](UPDATE_FLOWS.md) §3.
 
 **Bank swap (a.k.a. mirror).** This chip has two 512 KB flash banks and an option byte
 (`SWAP_BANK`) that exchanges which bank appears at the boot address. Instead of copying
@@ -116,7 +119,7 @@ investigation against the reference manual", not as something you can switch on.
 |---|---|---|---|---|---|
 | Single slot | 1× | no | n/a | no | no |
 | Dual overwrite | 2× | **no** | one full copy | yes | **yes, working** |
-| Dual swap | 2× + scratch | **yes** | ~two copies | yes | code path exists, commented out |
+| Dual swap | 2× + scratch | **yes** | ~two copies | yes | app side ready, RoT side off |
 | Bank swap | 2× (one per bank) | **yes** | instant | yes | **no** — needs design work |
 
 ### 2.2 Axis B — auto-revert
@@ -375,7 +378,7 @@ Honesty about what is available versus what needs building:
 |---|---|
 | dual-slot overwrite, hardware crypto, P-256, AES-128, anti-rollback, hash-ref | **working, shipped** — this example |
 | software crypto variant | **working** — sibling `oemirot_dualslot` (also covers NUCLEO-C562RE, C542RC) |
-| dual-slot swap | code path referenced (`MCUBOOT_SWAP_USING_MOVE` commented, appli layout generator knows "swap mode") — **not exercised here**; needs `ROM_FIXED` removed and a confirm step |
+| dual-slot swap | **application side already written**, compiled out: `FLASH_PRIMARY_APP_CONFIRM_OFFSET` (`0x8BFE0`) and `FW_UPDATE_ValidAppImage()` + its "Validate app image" menu entry live behind `#if !defined(OVERWRITE_ONLY)`. Missing: the RoT side (`MCUBOOT_SWAP_USING_MOVE` is commented out) and removal of `MCUBOOT_ROM_FIXED` |
 | bank swap / mirror | **not present** — `SWAP_BANK` exists only as an option byte set to 0; needs design work |
 | data image | plumbing present, sized to 0 — **enable and size the slots** |
 | external secondary slot | `w25q128j` part driver exists; **no RoT integration here** |
