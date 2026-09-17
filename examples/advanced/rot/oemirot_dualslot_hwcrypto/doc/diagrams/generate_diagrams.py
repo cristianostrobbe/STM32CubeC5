@@ -517,11 +517,17 @@ def d06_swap():
 
     o += step_dot(96, y + 30, 3, color=INK)
     o += text(132, y + 6, "The new firmware runs — on trial", size=20, weight="700", anchor="start")
-    o += rect(132, y + 22, 1360, 56, fill=AMBER_LT, stroke=AMBER, rx=10, sw=2.4)
-    o += text(812, y + 56, "it must write the confirmation flag at 0x8BFE0  —  \"I booted, keep me\"",
+    o += rect(132, y + 22, 1360, 96, fill=AMBER_LT, stroke=AMBER, rx=10, sw=2.4)
+    o += text(812, y + 54, "it must write the confirmation flag at 0x8BFE0  —  \"I booted, keep me\"",
               size=19, fill=INK, weight="600")
+    o += text(812, y + 82,
+              "the last 32 bytes of the PRIMARY slot (0x8C000 − 0x20) — MCUboot's image_ok field; the final 16 bytes hold the trailer magic",
+              size=15, fill=INK_SOFT)
+    o += text(812, y + 104,
+              "the application writes one 16-byte programming unit there: 0x01 then zeros — FW_UPDATE_ValidAppImage(), menu \"Validate app image\"",
+              size=15, fill=INK_SOFT)
 
-    yb = y + 118
+    yb = y + 146
     o += line(812, yb, 812, yb + 26, color=INK, sw=2.6)
     o += path(f"M812,{yb+26} L432,{yb+26} L432,{yb+58}", stroke=INK, sw=2.6, marker="arInk")
     o += path(f"M812,{yb+26} L1192,{yb+26} L1192,{yb+58}", stroke=INK, sw=2.6, marker="arInk")
@@ -542,6 +548,10 @@ def d06_swap():
                    note1="PREVIOUS, restored", note2="the failed one")
     o += text(1192, ybox + 192, "the RoT swaps back by itself — no probe, no truck roll",
               size=17, fill=RED, weight="700")
+
+    o += text(64, 878,
+              "Two marks, two slots: the magic trailer at the end of the SECONDARY slot asks for an install; the confirm flag at the end of the PRIMARY slot keeps what is now running.",
+              size=17, fill=INK_SOFT, anchor="start")
     return write("06-swap-sequence", o)
 
 

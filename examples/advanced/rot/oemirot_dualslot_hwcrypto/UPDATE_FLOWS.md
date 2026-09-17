@@ -241,6 +241,31 @@ STEP 8    the new firmware proves itself:
    └────────┴────────┘           └────────┴────────┘
 ```
 
+#### Why `0x8BFE0`, and who writes there
+
+It is not an arbitrary address: it is the **last 32 bytes of the primary slot**.
+The slot ends at `0x18000 + 0x74000 = 0x8C000`, and MCUboot's trailer is laid out
+backwards from that end, one flash programming unit (16 bytes here) per field:
+
+| Address | Field |
+|---|---|
+| `0x8BFF0` | trailer magic — the final 16 bytes of the slot |
+| **`0x8BFE0`** | **`image_ok`** — "this image is confirmed" |
+| `0x8BFD0` | `copy_done` |
+
+So `FLASH_PRIMARY_APP_CONFIRM_OFFSET` is simply `image_ok`'s slot in that trailer.
+
+**The application writes it**, into the slot it is itself running from —
+`FW_UPDATE_ValidAppImage()` in `appli/fw_update_app.c`, reachable from the
+"Validate app image" menu entry. It programs one 16-byte unit: `0x01` followed by
+zeros (`const uint8_t FlagPattern[FLASH_PROG_SIZE] = {0x1};`). 16 bytes because that
+is the flash's minimum programming granularity on this part, which is also why each
+trailer field is padded to 16.
+
+Note the symmetry with the magic trailer, and the difference: the magic goes at the end
+of the **secondary** slot and means *"please install this"*; the confirm flag goes at the
+end of the **primary** slot and means *"keep what is now running"*.
+
 ### Cost of this safety net
 
 - The swap moves roughly **twice** the data of an overwrite → slower install.
