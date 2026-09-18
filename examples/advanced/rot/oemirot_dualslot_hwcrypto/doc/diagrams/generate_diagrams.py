@@ -41,6 +41,30 @@ GRAY_BD   = "#C6D0DB"
 WHITE     = "#FFFFFF"
 
 
+# --------------------------------------------------------------- backends ---
+# "svg" (the default) emits SVG strings. "rec" records every primitive call so
+# another backend can replay them as native, editable PowerPoint shapes —
+# see build_pptx_editable.py. Diagram code is identical for both.
+_MODE = "svg"
+_REC = []
+SLIDES_REC = {}
+
+
+def set_mode(mode):
+    """Switch backend. Entering "rec" starts a fresh recording; leaving it keeps
+    what was recorded so a builder can still read SLIDES_REC."""
+    global _MODE
+    _MODE = mode
+    _REC.clear()
+    if mode == "rec":
+        SLIDES_REC.clear()
+
+
+def _rec(*item):
+    _REC.append(item)
+    return ""
+
+
 # ------------------------------------------------------------- primitives ---
 def esc(s):
     return (str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
@@ -91,6 +115,8 @@ def close():
 def text(x, y, s, size=22, fill=INK, anchor="middle", weight="400",
          family=None, opacity=1.0, spacing=None):
     f = family or FONT
+    if _MODE == "rec":
+        return _rec("text", x, y, str(s), size, fill, anchor, weight, f)
     sp = f' letter-spacing="{spacing}"' if spacing else ""
     op = f' opacity="{opacity}"' if opacity != 1.0 else ""
     return (f'<text x="{x}" y="{y}" font-size="{size}" fill="{fill}" '
@@ -99,6 +125,8 @@ def text(x, y, s, size=22, fill=INK, anchor="middle", weight="400",
 
 
 def rect(x, y, w, h, fill=WHITE, stroke=None, rx=12, sw=2, dash=None, opacity=1.0):
+    if _MODE == "rec":
+        return _rec("rect", x, y, w, h, fill, stroke, rx, sw, dash)
     st = f' stroke="{stroke}" stroke-width="{sw}"' if stroke else ""
     da = f' stroke-dasharray="{dash}"' if dash else ""
     op = f' opacity="{opacity}"' if opacity != 1.0 else ""
@@ -107,6 +135,8 @@ def rect(x, y, w, h, fill=WHITE, stroke=None, rx=12, sw=2, dash=None, opacity=1.
 
 
 def line(x1, y1, x2, y2, color=INK, sw=2.5, dash=None, marker=None, opacity=1.0):
+    if _MODE == "rec":
+        return _rec("line", x1, y1, x2, y2, color, sw, dash, marker)
     da = f' stroke-dasharray="{dash}"' if dash else ""
     mk = f' marker-end="url(#{marker})"' if marker else ""
     op = f' opacity="{opacity}"' if opacity != 1.0 else ""
@@ -115,6 +145,8 @@ def line(x1, y1, x2, y2, color=INK, sw=2.5, dash=None, marker=None, opacity=1.0)
 
 
 def path(d, stroke=INK, fill="none", sw=2.5, dash=None, marker=None, opacity=1.0):
+    if _MODE == "rec":
+        return _rec("path", d, stroke, sw, dash, marker)
     da = f' stroke-dasharray="{dash}"' if dash else ""
     mk = f' marker-end="url(#{marker})"' if marker else ""
     op = f' opacity="{opacity}"' if opacity != 1.0 else ""
@@ -136,8 +168,14 @@ def chip(x, y, label, fill=CYAN_LT, stroke=CYAN_DK, tcol=INK, size=17, pad=22, h
     return o, w
 
 
+def circle(x, y, r, fill):
+    if _MODE == "rec":
+        return _rec("circle", x, y, r, fill)
+    return f'<circle cx="{x}" cy="{y}" r="{r}" fill="{fill}"/>\n'
+
+
 def step_dot(x, y, n, color=INK, r=21, tcol=WHITE):
-    o = f'<circle cx="{x}" cy="{y}" r="{r}" fill="{color}"/>\n'
+    o = circle(x, y, r, color)
     o += text(x, y + 7.5, str(n), size=21, fill=tcol, weight="700")
     return o
 
@@ -196,6 +234,10 @@ def slot_pair(x, y, w, h, s1, s2, n1="PRIMARY SLOT", n2="SECONDARY SLOT",
 
 
 def write(name, body, w=W, h=H):
+    if _MODE == "rec":
+        SLIDES_REC[name] = list(_REC)
+        _REC.clear()
+        return name
     os.makedirs(SVG_DIR, exist_ok=True)
     p = os.path.join(SVG_DIR, name + ".svg")
     with open(p, "w") as f:

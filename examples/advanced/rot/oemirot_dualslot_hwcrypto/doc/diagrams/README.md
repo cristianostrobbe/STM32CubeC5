@@ -8,9 +8,11 @@ Slide-ready versions of the schemes in [`../../DOC.md`](../../DOC.md),
 |---|---|
 | `svg/` | vector, 1600 × 900, **transparent background** — the format to use in PowerPoint |
 | `png/` | 3200 × 1800 on white — fallback for templates or tools that dislike SVG |
-| `oemirot_architecture.pptx` | 16:9 deck, one diagram per slide, with speaker notes (deck order differs from file numbering — see `build_pptx.py`) |
+| `oemirot_architecture.pptx` | **16:9 deck built from native PowerPoint shapes — every box, line and label is editable.** With speaker notes |
+| `oemirot_architecture_images.pptx` | the same deck with each slide as a flat picture — pixel-exact, not editable |
 | `generate_diagrams.py` | regenerates everything in `svg/` and `png/` |
-| `build_pptx.py` | rebuilds the deck from `png/` |
+| `build_pptx_editable.py` | rebuilds the editable deck (native shapes, no pictures) |
+| `build_pptx.py` | rebuilds the picture deck from `png/` |
 
 ## The twenty diagrams
 
@@ -37,6 +39,24 @@ Slide-ready versions of the schemes in [`../../DOC.md`](../../DOC.md),
 | 15 | `15-faq-swap-and-speed` | FAQ — swap needs one bootloader, and encryption costs no runtime |
 | 16 | `16-open-questions` | the questions this analysis cannot answer — for the team to own |
 
+## Which deck to use
+
+**`oemirot_architecture.pptx` is the one to edit.** Every rectangle, arrow, circle and
+label is a real PowerPoint object: click it, drag it, recolour it, retype it. No
+"convert to shape" step, no pictures. It is also ~25× smaller than the picture deck.
+
+Two things to know before you edit:
+
+- **Labels are separate text boxes**, not text inside their rectangle. Moving a box does
+  not carry its label — select both (or rubber-band the group) when repositioning.
+- **Fonts decide the layout.** Text is Segoe UI (Consolas for addresses). On a machine
+  without Segoe UI, PowerPoint substitutes and a long label may sit a pixel or two off.
+  Nudge it, or use the picture deck where exactness matters.
+
+`oemirot_architecture_images.pptx` keeps each slide as a rendered picture — identical to
+the SVGs down to the pixel, useful for printing or for handing to someone who should not
+be changing the content.
+
 ## Using them in PowerPoint
 
 - **SVG** — Insert ▸ Pictures ▸ pick the `.svg`. To recolour it for your template,
@@ -52,8 +72,14 @@ Slide-ready versions of the schemes in [`../../DOC.md`](../../DOC.md),
 ```bash
 pip install cairosvg python-pptx      # only needed for the PNG and PPTX steps
 python3 generate_diagrams.py          # svg/ + png/   (--no-png to skip the raster export)
-python3 build_pptx.py                 # oemirot_architecture.pptx
+python3 build_pptx_editable.py        # oemirot_architecture.pptx         (native shapes)
+python3 build_pptx.py                 # oemirot_architecture_images.pptx  (pictures)
 ```
+
+`build_pptx_editable.py` replays the *same* drawing calls the SVG generator uses —
+`generate_diagrams.py` exposes a "rec" mode that records primitives instead of emitting
+SVG — so the two decks can never drift apart. Adding a diagram to `DIAGRAMS` and to the
+`SLIDES` list in `build_pptx.py` updates both.
 
 Colours, fonts and the slot-state vocabulary live at the top of `generate_diagrams.py`;
 change the palette constants there to match a corporate template and re-run.

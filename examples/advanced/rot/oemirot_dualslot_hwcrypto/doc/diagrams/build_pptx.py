@@ -15,7 +15,7 @@ from pptx.dml.color import RGBColor
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PNG = os.path.join(HERE, "png")
-OUT = os.path.join(HERE, "oemirot_architecture.pptx")
+OUT = os.path.join(HERE, "oemirot_architecture_images.pptx")
 
 NAVY = RGBColor(0x03, 0x23, 0x4B)
 CYAN = RGBColor(0x3C, 0xB4, 0xE6)
