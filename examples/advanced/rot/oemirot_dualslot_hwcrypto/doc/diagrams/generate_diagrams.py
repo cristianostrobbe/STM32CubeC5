@@ -373,6 +373,20 @@ def d02_flash_map():
         o += text(zx + 136, yy, b, size=17, weight="700", anchor="start")
         o += text(zx + 258, yy, c, size=16, fill=INK_SOFT, anchor="start")
 
+    # why the primary slot crosses the bank line
+    o += card(1060, 604, 476, 208, fill=RED_LT, stroke=RED, sw=2.4)
+    o += text(1298, 638, "Why the primary slot crosses", size=18, weight="700", fill=RED)
+    o += text(1298, 660, "the bank line", size=18, weight="700", fill=RED)
+    for i, ln in enumerate([
+            "96 KB comes off the front for the RoT, so",
+            "splitting the remaining 928 KB in half lands",
+            "96 KB past the 0x80000 midpoint. Aligning",
+            "to the bank instead would mean 416 KB",
+            "slots — 48 KB less in each."]):
+        o += text(1084, 692 + i * 21, ln, size=15, fill=INK_SOFT, anchor="start")
+    o += text(1084, 800, "Harmless for the install — it bites RWW and bank swap.",
+              size=13, fill=RED, weight="700", anchor="start")
+
     o += rect(64, 832, 1472, 2, fill=GRAY_BD)
     o += text(64, 874, "Two slots of the same size is what makes a safe update possible — and it is why the app budget is 464 KB, not 925 KB.",
               size=20, weight="600", anchor="start")

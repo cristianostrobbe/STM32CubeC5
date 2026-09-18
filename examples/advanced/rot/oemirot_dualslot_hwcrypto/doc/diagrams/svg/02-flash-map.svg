@@ -76,6 +76,15 @@
 <text x="326" y="762" font-size="17" fill="#6B5BD2" text-anchor="start" font-weight="700" font-family="Consolas, Menlo, monospace">0x16000</text>
 <text x="436" y="762" font-size="17" fill="#03234B" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">hash refs</text>
 <text x="558" y="762" font-size="16" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">lets a known-good image skip the signature check</text>
+<rect x="1060" y="604" width="476" height="208" rx="16" fill="#FBE7E8" stroke="#D0323C" stroke-width="2.4"/>
+<text x="1298" y="638" font-size="18" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Why the primary slot crosses</text>
+<text x="1298" y="660" font-size="18" fill="#D0323C" text-anchor="middle" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">the bank line</text>
+<text x="1084" y="692" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">96 KB comes off the front for the RoT, so</text>
+<text x="1084" y="713" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">splitting the remaining 928 KB in half lands</text>
+<text x="1084" y="734" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">96 KB past the 0x80000 midpoint. Aligning</text>
+<text x="1084" y="755" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">to the bank instead would mean 416 KB</text>
+<text x="1084" y="776" font-size="15" fill="#5B6B80" text-anchor="start" font-weight="400" font-family="Segoe UI, Arial, Helvetica, sans-serif">slots — 48 KB less in each.</text>
+<text x="1084" y="800" font-size="13" fill="#D0323C" text-anchor="start" font-weight="700" font-family="Segoe UI, Arial, Helvetica, sans-serif">Harmless for the install — it bites RWW and bank swap.</text>
 <rect x="64" y="832" width="1472" height="2" rx="12" fill="#C6D0DB"/>
 <text x="64" y="874" font-size="20" fill="#03234B" text-anchor="start" font-weight="600" font-family="Segoe UI, Arial, Helvetica, sans-serif">Two slots of the same size is what makes a safe update possible — and it is why the app budget is 464 KB, not 925 KB.</text>
 </svg>

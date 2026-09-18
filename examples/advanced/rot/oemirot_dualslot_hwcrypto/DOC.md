@@ -60,6 +60,13 @@ Notable: the layout is *symmetric* — both slots are the same size, which is wh
 or mirror scheme would need. It is **not** bank-aligned, however: bank 1 ends at
 `0x80000`, so the primary slot holds 416 KB in bank 1 and spills 48 KB
 (`0x80000`–`0x8BFFF`) into bank 2. Only the secondary slot sits wholly inside one bank.
+
+That crossing is arithmetic, not intent: 96 KB comes off the front for the RoT and its
+data, so splitting the remaining 928 KB evenly lands 96 KB past the `0x80000` midpoint.
+Aligning the split to the bank boundary instead would give 416 KB slots — 48 KB less in
+each — and buy nothing for the install, since MCUboot works in 8 KB pages and is unaware
+of banks. (The sw-crypto sibling `oemirot_dualslot` uses 80 KB slots that fit entirely
+inside bank 1; only this variant grew them to fill the device.)
 This matters twice: for read-while-write (application code lives in both banks) and for
 any future bank-swap scheme, which would need each image contained in its own bank.
 
